@@ -40,8 +40,12 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="Bridge.cs" />
     <Compile Include="CodeContracts\Contract.cs" />
     <Compile Include="IScenarioRunner.cs" />
+    <Compile Include="StepDefinitions\StepAttributedMethodResolver.cs" />
+    <Compile Include="StepDefinitions\StepDefinitionFactory.cs" />
+    <Compile Include="StepDefinitions\StepMatcher.cs" />
     <Compile Include="Steps\IStep.cs" />
     <Compile Include="StepDefinitions\IStepAttributedMethodResolver.cs" />
     <Compile Include="StepDefinitions\IStepDefinition.cs" />

@@ -87,6 +87,7 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="BridgeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioRunnerTests.cs" />
     <Compile Include="StepDefinitions\MultipleMatchingStepDefinitionsExceptionTests.cs" />
