@@ -1,4 +1,6 @@
-namespace Gauge.NCrunch.Runner
+using Gauge.NCrunch.Runner.StepDefinitions;
+
+namespace Gauge.NCrunch.Runner.Steps
 {
     public interface IStepFactory
     {

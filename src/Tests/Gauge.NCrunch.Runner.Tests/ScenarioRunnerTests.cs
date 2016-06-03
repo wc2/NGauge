@@ -1,4 +1,6 @@
 ﻿using System;
+using Gauge.NCrunch.Runner.StepDefinitions;
+using Gauge.NCrunch.Runner.Steps;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;

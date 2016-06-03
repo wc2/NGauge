@@ -1,4 +1,6 @@
 ﻿using Gauge.NCrunch.Runner.CodeContracts;
+using Gauge.NCrunch.Runner.StepDefinitions;
+using Gauge.NCrunch.Runner.Steps;
 
 namespace Gauge.NCrunch.Runner
 {

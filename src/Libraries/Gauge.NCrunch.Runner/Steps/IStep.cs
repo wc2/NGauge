@@ -1,4 +1,4 @@
-﻿namespace Gauge.NCrunch.Runner
+﻿namespace Gauge.NCrunch.Runner.Steps
 {
     public interface IStep
     {

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using FluentAssertions;
+using Gauge.NCrunch.Runner.StepDefinitions;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;

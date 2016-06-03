@@ -1,11 +1,12 @@
 using System;
 using FluentAssertions;
+using Gauge.NCrunch.Runner.StepDefinitions;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;
 
 namespace Gauge.NCrunch.Runner.Tests
 {
-    public sealed class MultipleMatchingStepDefinitionsExceptionTests
+    public sealed class StepDefinitionNotFoundExceptionTests
     {
         [Theory]
         [InlineData("")]
@@ -15,14 +16,14 @@ namespace Gauge.NCrunch.Runner.Tests
         {
             Assert.Throws<ArgumentNullException>(
                 "stepText",
-                () => new MultipleMatchingStepDefinitionsException(stepName));
+                () => new StepDefinitionNotFoundException(stepName));
         }
 
         [Theory, AutoData]
         public void ctor_SetsExpectedMessage(string stepName)
         {
-            var expectedMessage = string.Format(MultipleMatchingStepDefinitionsException.ErrorMessageFormat, stepName);
-            var stepDefinitionNotFoundException = new MultipleMatchingStepDefinitionsException(stepName);
+            var expectedMessage = string.Format(StepDefinitionNotFoundException.ErrorMessageFormat, stepName);
+            var stepDefinitionNotFoundException = new StepDefinitionNotFoundException(stepName);
 
             stepDefinitionNotFoundException
                 .Message

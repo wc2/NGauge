@@ -1,7 +1,7 @@
 using System;
 using Gauge.NCrunch.Runner.CodeContracts;
 
-namespace Gauge.NCrunch.Runner
+namespace Gauge.NCrunch.Runner.StepDefinitions
 {
     public sealed class MultipleMatchingStepDefinitionsException : Exception
     {

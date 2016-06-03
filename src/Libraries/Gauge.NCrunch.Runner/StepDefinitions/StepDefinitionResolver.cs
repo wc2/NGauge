@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Gauge.NCrunch.Runner.CodeContracts;
 
-namespace Gauge.NCrunch.Runner
+namespace Gauge.NCrunch.Runner.StepDefinitions
 {
     internal sealed class StepDefinitionResolver : IStepDefinitionResolver
     {
