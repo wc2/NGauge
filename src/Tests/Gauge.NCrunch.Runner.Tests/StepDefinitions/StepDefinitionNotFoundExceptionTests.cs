@@ -4,7 +4,7 @@ using Gauge.NCrunch.Runner.StepDefinitions;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;
 
-namespace Gauge.NCrunch.Runner.Tests
+namespace Gauge.NCrunch.Runner.Tests.StepDefinitions
 {
     public sealed class StepDefinitionNotFoundExceptionTests
     {

@@ -1,7 +1,6 @@
 using Gauge.NCrunch.Runner.StepDefinitions;
-using Gauge.NCrunch.Runner.Steps;
 
-namespace Gauge.NCrunch.Runner
+namespace Gauge.NCrunch.Runner.Steps
 {
     internal sealed class StepFactory : IStepFactory
     {
