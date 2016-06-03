@@ -1,3 +1,4 @@
+using Gauge.NCrunch.Runner.CodeContracts;
 using Gauge.NCrunch.Runner.StepDefinitions;
 
 namespace Gauge.NCrunch.Runner.Steps
@@ -6,7 +7,9 @@ namespace Gauge.NCrunch.Runner.Steps
     {
         IStep IStepFactory.Create(IStepDefinition stepDefinition)
         {
-            throw new System.NotImplementedException();
+            Contract.RequiresNotNull(stepDefinition, nameof(stepDefinition));
+            
+            return new Step();
         }
     }
 }

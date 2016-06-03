@@ -54,6 +54,7 @@
     <Compile Include="ScenarioRunner.cs" />
     <Compile Include="StepDefinitions\StepDefinitionNotFoundException.cs" />
     <Compile Include="StepDefinitions\StepDefinitionResolver.cs" />
+    <Compile Include="Steps\Step.cs" />
     <Compile Include="Steps\StepFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

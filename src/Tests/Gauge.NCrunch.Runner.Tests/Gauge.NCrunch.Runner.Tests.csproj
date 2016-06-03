@@ -92,6 +92,7 @@
     <Compile Include="StepDefinitions\MultipleMatchingStepDefinitionsExceptionTests.cs" />
     <Compile Include="StepDefinitions\StepDefinitionNotFoundExceptionTests.cs" />
     <Compile Include="StepDefinitions\StepDefinitionResolverTests.cs" />
+    <Compile Include="Steps\StepFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Runner\Gauge.NCrunch.Runner.csproj">
@@ -103,9 +104,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Steps\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
