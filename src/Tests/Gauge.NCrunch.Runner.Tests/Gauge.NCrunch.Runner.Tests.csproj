@@ -89,6 +89,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioRunnerTests.cs" />
+    <Compile Include="MultipleMatchingStepDefinitionsExceptionTests.cs" />
+    <Compile Include="StepDefinitionNotFoundExceptionTests.cs" />
+    <Compile Include="StepDefinitionResolverTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Runner\Gauge.NCrunch.Runner.csproj">

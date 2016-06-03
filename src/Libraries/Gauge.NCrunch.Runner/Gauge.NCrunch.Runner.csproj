@@ -43,11 +43,17 @@
     <Compile Include="CodeContracts\Contract.cs" />
     <Compile Include="IScenarioRunner.cs" />
     <Compile Include="IStep.cs" />
+    <Compile Include="IStepAttributedMethodResolver.cs" />
     <Compile Include="IStepDefinition.cs" />
+    <Compile Include="IStepDefinitionFactory.cs" />
     <Compile Include="IStepDefinitionResolver.cs" />
     <Compile Include="IStepFactory.cs" />
+    <Compile Include="IStepMatcher.cs" />
+    <Compile Include="MultipleMatchingStepDefinitionsException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScenarioRunner.cs" />
+    <Compile Include="StepDefinitionNotFoundException.cs" />
+    <Compile Include="StepDefinitionResolver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

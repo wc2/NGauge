@@ -2,5 +2,6 @@
 {
     public interface IStepDefinition
     {
+        string StepText { get; }
     }
 }
