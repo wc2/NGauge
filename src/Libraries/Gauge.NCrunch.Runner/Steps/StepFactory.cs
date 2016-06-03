@@ -9,7 +9,7 @@ namespace Gauge.NCrunch.Runner.Steps
         {
             Contract.RequiresNotNull(stepDefinition, nameof(stepDefinition));
             
-            return new Step();
+            return new Step(null, null);
         }
     }
 }

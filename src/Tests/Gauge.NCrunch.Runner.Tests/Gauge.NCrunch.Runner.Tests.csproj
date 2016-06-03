@@ -93,6 +93,7 @@
     <Compile Include="StepDefinitions\StepDefinitionNotFoundExceptionTests.cs" />
     <Compile Include="StepDefinitions\StepDefinitionResolverTests.cs" />
     <Compile Include="Steps\StepFactoryTests.cs" />
+    <Compile Include="Steps\StepTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Runner\Gauge.NCrunch.Runner.csproj">
