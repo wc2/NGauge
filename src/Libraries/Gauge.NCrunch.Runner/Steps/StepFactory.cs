@@ -1,3 +1,4 @@
+using System;
 using Gauge.NCrunch.Runner.CodeContracts;
 using Gauge.NCrunch.Runner.StepDefinitions;
 
@@ -8,8 +9,10 @@ namespace Gauge.NCrunch.Runner.Steps
         IStep IStepFactory.Create(IStepDefinition stepDefinition)
         {
             Contract.RequiresNotNull(stepDefinition, nameof(stepDefinition));
-            
-            return new Step(null, null);
+
+            var target = Activator.CreateInstance(stepDefinition.MethodInfo.DeclaringType);
+
+            return new Step(target, stepDefinition.MethodInfo);
         }
     }
 }

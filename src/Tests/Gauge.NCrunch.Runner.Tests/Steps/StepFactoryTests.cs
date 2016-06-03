@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
 using FluentAssertions;
 using Gauge.NCrunch.Runner.StepDefinitions;
 using Gauge.NCrunch.Runner.Steps;
@@ -20,9 +22,21 @@ namespace Gauge.NCrunch.Runner.Tests.Steps
         }
 
         [Fact]
-        public void Create_ReturnsInstanceOfStep()
+        public void Create_ReturnsInstanceOfStepWithInstanceOfMethodInfoDeclaringType()
+        {
+            CreateStepAndAssertTargetIsInstanceOfType<object>();
+            CreateStepAndAssertTargetIsInstanceOfType<List<string>>();
+        }
+
+        [Fact]
+        public void Create_ReturnsInstanceOfStepWithExpectedMethodInfo()
         {
             var stepDefinition = Substitute.For<IStepDefinition>();
+            var methodInfo = GetMockMethodInfoWithDeclaringType<object>();
+            stepDefinition
+                .MethodInfo
+                .Returns(methodInfo);
+
             IStepFactory stepFactory = new StepFactory();
 
             var step = stepFactory.Create(stepDefinition);
@@ -30,6 +44,39 @@ namespace Gauge.NCrunch.Runner.Tests.Steps
             step
                 .Should()
                 .BeOfType<Step>();
+        }
+
+        private static void CreateStepAndAssertTargetIsInstanceOfType<T>()
+        {
+            var methodInfo = GetMockMethodInfoWithDeclaringType<T>();
+
+            var stepDefinition = Substitute.For<IStepDefinition>();
+            stepDefinition
+                .MethodInfo
+                .Returns(methodInfo);
+
+            IStepFactory stepFactory = new StepFactory();
+
+            var step = stepFactory.Create(stepDefinition);
+
+            step.Invoke();
+
+            methodInfo
+                .Received()
+                .Invoke(
+                    Arg.Any<T>(),
+                    Arg.Any<object[]>());
+        }
+
+        private static MethodInfo GetMockMethodInfoWithDeclaringType<T>()
+        {
+            var methodInfo = Substitute.For<MethodInfo>();
+
+            methodInfo
+                .DeclaringType
+                .Returns(typeof(T));
+
+            return methodInfo;
         }
     }
 }
