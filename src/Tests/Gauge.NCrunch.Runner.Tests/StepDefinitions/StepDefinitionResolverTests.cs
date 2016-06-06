@@ -53,7 +53,7 @@ namespace Gauge.NCrunch.Runner.Tests.StepDefinitions
 
             stepAttributedMethodResolver
                 .Received()
-                .GetStepAttributeMethods();
+                .GetStepAttributedMethods();
         }
 
         [Fact]
@@ -153,7 +153,7 @@ namespace Gauge.NCrunch.Runner.Tests.StepDefinitions
             var resolver = Substitute.For<IStepAttributedMethodResolver>();
 
             resolver
-                .GetStepAttributeMethods()
+                .GetStepAttributedMethods()
                 .Returns(expectedStepAttributedMethods);
 
             return resolver;

@@ -5,6 +5,6 @@ namespace Gauge.NCrunch.Runner.StepDefinitions
 {
     public interface IStepAttributedMethodResolver
     {
-        IEnumerable<MethodInfo> GetStepAttributeMethods();
+        IEnumerable<MethodInfo> GetStepAttributedMethods();
     }
 }

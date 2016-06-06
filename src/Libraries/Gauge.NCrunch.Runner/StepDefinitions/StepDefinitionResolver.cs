@@ -9,14 +9,15 @@ namespace Gauge.NCrunch.Runner.StepDefinitions
         private readonly IEnumerable<IStepDefinition> _stepDefinitions;
         private readonly IStepMatcher _stepMatcher;
 
-        internal StepDefinitionResolver(IStepAttributedMethodResolver stepAttributedMethodResolver, IStepDefinitionFactory stepDefinitionFactory, IStepMatcher stepMatcher)
+        internal StepDefinitionResolver(IStepAttributedMethodResolver stepAttributedMethodResolver,
+            IStepDefinitionFactory stepDefinitionFactory, IStepMatcher stepMatcher)
         {
             Contract.RequiresNotNull(stepAttributedMethodResolver, nameof(stepAttributedMethodResolver));
             Contract.RequiresNotNull(stepDefinitionFactory, nameof(stepDefinitionFactory));
             Contract.RequiresNotNull(stepMatcher, nameof(stepMatcher));
 
             _stepDefinitions = stepAttributedMethodResolver
-                .GetStepAttributeMethods()
+                .GetStepAttributedMethods()
                 .SelectMany(stepDefinitionFactory.Create)
                 .ToArray();
 
