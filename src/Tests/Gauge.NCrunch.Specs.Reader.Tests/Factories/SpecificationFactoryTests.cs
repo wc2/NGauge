@@ -13,17 +13,6 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Factories
             Assert.Throws<ArgumentNullException>(
                 "stepFactory",
                 () => new SpecificationFactory(
-                    null,
-                    Substitute.For<IScenarioFactory>()));
-        }
-
-        [Fact]
-        public void ctor_ScenarioFactoryRequired()
-        {
-            Assert.Throws<ArgumentNullException>(
-                "scenarioFactory",
-                () => new SpecificationFactory(
-                    Substitute.For<IStepFactory>(),
                     null));
         }
 
@@ -40,7 +29,6 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Factories
         private static ISpecificationFactory CreateSpecificationFactory()
         {
             return new SpecificationFactory(
-                Substitute.For<IStepFactory>(),
                 Substitute.For<IScenarioFactory>());
         }
     }

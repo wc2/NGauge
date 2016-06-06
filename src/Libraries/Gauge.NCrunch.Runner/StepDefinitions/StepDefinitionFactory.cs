@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Reflection;
-using Gauge.NCrunch.Runner.CodeContracts;
+using Gauge.NCrunch.CodeContracts;
 using GaugeStep = Gauge.CSharp.Lib.Attribute.Step;
 
 namespace Gauge.NCrunch.Runner.StepDefinitions

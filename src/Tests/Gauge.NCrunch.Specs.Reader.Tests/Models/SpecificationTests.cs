@@ -20,19 +20,6 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Models
                 "name",
                 () => new Specification(
                     name,
-                    Substitute.For<IEnumerable<IStep>>(),
-                    Substitute.For<IEnumerable<IScenario>>(),
-                    Substitute.For<IEnumerable<string>>()));
-        }
-
-        [Fact]
-        public void ctor_ContextStepsRequired()
-        {
-            Assert.Throws<ArgumentNullException>(
-                "contextSteps",
-                () => new Specification(
-                    "some spec",
-                    null,
                     Substitute.For<IEnumerable<IScenario>>(),
                     Substitute.For<IEnumerable<string>>()));
         }
@@ -44,7 +31,6 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Models
                 "scenarios",
                 () => new Specification(
                     "some spec",
-                    Substitute.For<IEnumerable<IStep>>(),
                     null,
                     Substitute.For<IEnumerable<string>>()));
         }
@@ -56,7 +42,6 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Models
                 "tags",
                 () => new Specification(
                     "some spec",
-                    Substitute.For<IEnumerable<IStep>>(),
                     Substitute.For<IEnumerable<IScenario>>(),
                     null));
         }
@@ -69,17 +54,6 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Models
             specification.Name
                 .Should()
                 .Be(name);
-        }
-
-        [Fact]
-        public void ctor_SetsContextSteps()
-        {
-            var contextSteps = Substitute.For<IEnumerable<IStep>>();
-            var specification = CreateSpecification(contextSteps: contextSteps);
-
-            specification.ContextSteps
-                .Should()
-                .BeSameAs(contextSteps);
         }
 
         [Fact]
@@ -104,14 +78,13 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Models
                 .BeSameAs(tags);
         }
 
-        private static ISpecification CreateSpecification(string name = null, IEnumerable<IStep> contextSteps = null,
-            IEnumerable<IScenario> scenarios = null, IEnumerable<string> tags = null)
+        private static ISpecification CreateSpecification(string name = null, IEnumerable<IScenario> scenarios = null,
+            IEnumerable<string> tags = null)
         {
             return new Specification(
-                name         ?? "spec",
-                contextSteps ?? Substitute.For<IEnumerable<IStep>>(),
-                scenarios    ?? Substitute.For<IEnumerable<IScenario>>(),
-                tags         ?? Substitute.For<IEnumerable<string>>());
+                name      ?? "spec",
+                scenarios ?? Substitute.For<IEnumerable<IScenario>>(),
+                tags      ?? Substitute.For<IEnumerable<string>>());
         }
     }
 }
