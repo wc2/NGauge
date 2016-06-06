@@ -30,6 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gauge.CSharp.Core">
+      <HintPath>..\..\..\packages\Gauge.CSharp.Core.0.0.2.0\lib\net45\Gauge.CSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers, Version=2.4.1.555, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers.Serialization, Version=2.4.1.555, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +54,10 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="Factories\IScenarioFactory.cs" />
+    <Compile Include="Factories\ISpecificationFactory.cs" />
+    <Compile Include="Factories\IStepFactory.cs" />
+    <Compile Include="IGaugeSpecificationsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Scenario.cs" />
     <Compile Include="Models\Specification.cs" />
@@ -50,7 +65,7 @@
     <Compile Include="Models\Step.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
+    <ProjectReference Include="..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
       <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
       <Name>Gauge.NCrunch.CodeContracts</Name>
     </ProjectReference>
@@ -58,6 +73,9 @@
       <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
       <Name>Gauge.NCrunch.Specs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
