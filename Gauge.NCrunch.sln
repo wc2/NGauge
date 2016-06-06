@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{280F4237-49CC-46E7-A3F2-6B23E5B2F484}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{332EF9A6-F35B-452C-9E02-55475504639B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{94166A8E-13D4-4C49-8334-D9C65F12488E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E7AB6A87-6958-4131-9D8D-78B404D7ACFA}"
+	ProjectSection(SolutionItems) = preProject
+		src\Common\CommonAssembly.cs = src\Common\CommonAssembly.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Runner.Tests", "src\Tests\Gauge.NCrunch.Runner.Tests\Gauge.NCrunch.Runner.Tests.csproj", "{D8A9A94F-42CA-485F-ACF2-B5564BC953A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Runner", "src\Libraries\Gauge.NCrunch.Runner\Gauge.NCrunch.Runner.csproj", "{48A3FF36-660A-4BA9-9786-04CC3BAC3533}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8A9A94F-42CA-485F-ACF2-B5564BC953A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A9A94F-42CA-485F-ACF2-B5564BC953A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A9A94F-42CA-485F-ACF2-B5564BC953A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A9A94F-42CA-485F-ACF2-B5564BC953A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A3FF36-660A-4BA9-9786-04CC3BAC3533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A3FF36-660A-4BA9-9786-04CC3BAC3533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A3FF36-660A-4BA9-9786-04CC3BAC3533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A3FF36-660A-4BA9-9786-04CC3BAC3533}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{332EF9A6-F35B-452C-9E02-55475504639B} = {280F4237-49CC-46E7-A3F2-6B23E5B2F484}
+		{94166A8E-13D4-4C49-8334-D9C65F12488E} = {280F4237-49CC-46E7-A3F2-6B23E5B2F484}
+		{E7AB6A87-6958-4131-9D8D-78B404D7ACFA} = {280F4237-49CC-46E7-A3F2-6B23E5B2F484}
+		{D8A9A94F-42CA-485F-ACF2-B5564BC953A9} = {332EF9A6-F35B-452C-9E02-55475504639B}
+		{48A3FF36-660A-4BA9-9786-04CC3BAC3533} = {94166A8E-13D4-4C49-8334-D9C65F12488E}
+	EndGlobalSection
+EndGlobal
