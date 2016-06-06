@@ -59,6 +59,7 @@
     <Compile Include="StepDefinitions\IStepMatcher.cs" />
     <Compile Include="StepDefinitions\MultipleMatchingStepDefinitionsException.cs" />
     <Compile Include="StepDefinitions\StepAttributedMethodResolver.cs" />
+    <Compile Include="StepDefinitions\StepDefinition.cs" />
     <Compile Include="StepDefinitions\StepDefinitionFactory.cs" />
     <Compile Include="StepDefinitions\StepDefinitionNotFoundException.cs" />
     <Compile Include="StepDefinitions\StepDefinitionResolver.cs" />
