@@ -72,7 +72,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
+    <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
       <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
       <Name>Gauge.NCrunch.CodeContracts</Name>
     </ProjectReference>
