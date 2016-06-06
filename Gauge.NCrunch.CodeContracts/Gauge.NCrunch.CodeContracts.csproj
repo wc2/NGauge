@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48A3FF36-660A-4BA9-9786-04CC3BAC3533}</ProjectGuid>
+    <ProjectGuid>{62A19060-3C3D-498A-8566-2D1047D33601}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gauge.NCrunch.Runner</RootNamespace>
-    <AssemblyName>Gauge.NCrunch.Runner</AssemblyName>
+    <RootNamespace>Gauge.NCrunch.CodeContracts</RootNamespace>
+    <AssemblyName>Gauge.NCrunch.CodeContracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gauge.CSharp.Lib, Version=0.5.3.0, Culture=neutral, PublicKeyToken=3f92af01a0ea350e, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Gauge.CSharp.Lib.0.5.3.0\lib\net45\Gauge.CSharp.Lib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,37 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Common\CommonAssembly.cs">
+    <Compile Include="..\src\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
-    <Compile Include="Bridge.cs" />
-    <Compile Include="IScenarioRunner.cs" />
+    <Compile Include="Contract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScenarioRunner.cs" />
-    <Compile Include="StepDefinitions\IStepAttributedMethodResolver.cs" />
-    <Compile Include="StepDefinitions\IStepDefinition.cs" />
-    <Compile Include="StepDefinitions\IStepDefinitionFactory.cs" />
-    <Compile Include="StepDefinitions\IStepDefinitionResolver.cs" />
-    <Compile Include="StepDefinitions\IStepMatcher.cs" />
-    <Compile Include="StepDefinitions\MultipleMatchingStepDefinitionsException.cs" />
-    <Compile Include="StepDefinitions\StepAttributedMethodResolver.cs" />
-    <Compile Include="StepDefinitions\StepDefinitionFactory.cs" />
-    <Compile Include="StepDefinitions\StepDefinitionNotFoundException.cs" />
-    <Compile Include="StepDefinitions\StepDefinitionResolver.cs" />
-    <Compile Include="StepDefinitions\StepMatcher.cs" />
-    <Compile Include="Steps\IStep.cs" />
-    <Compile Include="Steps\IStepFactory.cs" />
-    <Compile Include="Steps\Step.cs" />
-    <Compile Include="Steps\StepFactory.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
-      <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
-      <Name>Gauge.NCrunch.CodeContracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
