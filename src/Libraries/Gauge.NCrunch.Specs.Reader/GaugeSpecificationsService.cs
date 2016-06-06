@@ -5,7 +5,7 @@ using Gauge.Messages;
 
 namespace Gauge.NCrunch.Specs.Reader
 {
-    public sealed class GaugeSpecificationsService : IGaugeSpecificationsService
+    internal sealed class GaugeSpecificationsService : IGaugeSpecificationsService
     {
         private readonly int _apiPort;
 

@@ -23,16 +23,18 @@ namespace Gauge.NCrunch.Specs.Reader.Factories
         {
             Contract.RequiresNotNull(protoSpec, nameof(protoSpec));
 
-            var concepts = protoSpec.ItemsList
-                .Where(item => item.HasConcept);
-            var scenarios = protoSpec.ItemsList
-                .Where(item => item.HasScenario);
+            var protoConcepts = protoSpec.ItemsList
+                .Where(item => item.HasConcept)
+                .Select(item => item.Concept);
+            var protoScenarios = protoSpec.ItemsList
+                .Where(item => item.HasScenario)
+                .Select(item => item.Scenario);
             var tags = protoSpec.TagsList;
 
             return new Specification(
                 protoSpec.SpecHeading,
-                _stepFactory.Create(concepts),
-                _scenarioFactory.Create(scenarios),
+                protoConcepts.SelectOrEmpty(_stepFactory.Create),
+                protoScenarios.SelectOrEmpty(_scenarioFactory.Create),
                 tags);
         }
     }

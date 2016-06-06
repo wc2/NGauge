@@ -54,9 +54,11 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="Factories\Extensions.cs" />
     <Compile Include="Factories\IScenarioFactory.cs" />
     <Compile Include="Factories\ISpecificationFactory.cs" />
     <Compile Include="Factories\IStepFactory.cs" />
+    <Compile Include="Factories\ScenarioFactory.cs" />
     <Compile Include="Factories\SpecificationFactory.cs" />
     <Compile Include="GaugeSpecificationsService.cs" />
     <Compile Include="IGaugeSpecificationsService.cs" />
