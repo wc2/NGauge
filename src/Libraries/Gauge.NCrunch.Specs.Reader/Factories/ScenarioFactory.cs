@@ -18,6 +18,8 @@ namespace Gauge.NCrunch.Specs.Reader.Factories
 
         IScenario IScenarioFactory.Create(ProtoScenario protoScenario)
         {
+            Contract.RequiresNotNull(protoScenario, nameof(protoScenario));
+
             var protoSteps = protoScenario
                 .ScenarioItemsList
                 .Where(item => item.HasStep)

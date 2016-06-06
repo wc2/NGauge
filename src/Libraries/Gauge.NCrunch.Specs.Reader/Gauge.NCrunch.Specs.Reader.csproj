@@ -60,6 +60,7 @@
     <Compile Include="Factories\IStepFactory.cs" />
     <Compile Include="Factories\ScenarioFactory.cs" />
     <Compile Include="Factories\SpecificationFactory.cs" />
+    <Compile Include="Factories\StepFactory.cs" />
     <Compile Include="GaugeSpecificationsService.cs" />
     <Compile Include="IGaugeSpecificationsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

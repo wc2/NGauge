@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Factories\ScenarioFactoryTests.cs" />
     <Compile Include="Factories\SpecificationFactoryTests.cs" />
+    <Compile Include="Factories\StepFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ScenarioTests.cs" />
     <Compile Include="Models\SpecificationTests.cs" />
