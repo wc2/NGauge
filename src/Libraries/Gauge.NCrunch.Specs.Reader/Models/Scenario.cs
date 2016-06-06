@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Gauge.NCrunch.CodeContracts;
 
-namespace Gauge.NCrunch.Specs.Reader
+namespace Gauge.NCrunch.Specs.Reader.Models
 {
     internal sealed class Scenario : IScenario
     {

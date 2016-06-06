@@ -44,9 +44,10 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scenario.cs" />
-    <Compile Include="Specification.cs" />
-    <Compile Include="Step.cs" />
+    <Compile Include="Models\Scenario.cs" />
+    <Compile Include="Models\Specification.cs" />
+    <Compile Include="SpecificationReader.cs" />
+    <Compile Include="Models\Step.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">

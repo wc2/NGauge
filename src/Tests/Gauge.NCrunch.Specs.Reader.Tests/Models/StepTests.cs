@@ -1,10 +1,11 @@
 using System;
 using FluentAssertions;
+using Gauge.NCrunch.Specs.Reader.Models;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;
 
-namespace Gauge.NCrunch.Specs.Reader.Tests
+namespace Gauge.NCrunch.Specs.Reader.Tests.Models
 {
     public sealed class StepTests
     {
