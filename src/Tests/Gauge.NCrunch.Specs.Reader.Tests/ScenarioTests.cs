@@ -56,7 +56,7 @@ namespace Gauge.NCrunch.Specs.Reader.Tests
         }
 
         [Fact]
-        public void ctor_SetsContextSteps()
+        public void ctor_SetsSteps()
         {
             var steps = Substitute.For<IEnumerable<IStep>>();
             var scenario = CreateScenario(steps: steps);
