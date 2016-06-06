@@ -44,8 +44,13 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specification.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
+      <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
+      <Name>Gauge.NCrunch.CodeContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gauge.NCrunch.Specs\Gauge.NCrunch.Specs.csproj">
       <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
       <Name>Gauge.NCrunch.Specs</Name>
