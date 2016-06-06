@@ -1,4 +1,7 @@
+using System.Linq;
 using System.Reflection;
+using Gauge.NCrunch.Runner.CodeContracts;
+using GaugeStep = Gauge.CSharp.Lib.Attribute.Step;
 
 namespace Gauge.NCrunch.Runner.StepDefinitions
 {
@@ -6,7 +9,14 @@ namespace Gauge.NCrunch.Runner.StepDefinitions
     {
         IStepDefinition[] IStepDefinitionFactory.Create(MethodInfo methodInfo)
         {
-            throw new System.NotImplementedException();
+            Contract.RequiresNotNull(methodInfo, nameof(methodInfo));
+
+            return methodInfo
+                .GetCustomAttribute<GaugeStep>()
+                ?.Names
+                .Select(stepText => new StepDefinition(stepText, methodInfo))
+                .Cast<IStepDefinition>()
+                .ToArray() ?? new IStepDefinition[] { };
         }
     }
 }
