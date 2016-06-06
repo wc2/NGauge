@@ -111,6 +111,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Core\Gauge.NCrunch.Core.csproj">
+      <Project>{D5E5B372-0010-47AF-8BC1-58916F836EFE}</Project>
+      <Name>Gauge.NCrunch.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Runner\Gauge.NCrunch.Runner.csproj">
       <Project>{48a3ff36-660a-4ba9-9786-04cc3bac3533}</Project>
       <Name>Gauge.NCrunch.Runner</Name>

@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.CodeContracts
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.CodeContracts", "src\Libraries\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj", "{62A19060-3C3D-498A-8566-2D1047D33601}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Core", "src\Libraries\Gauge.NCrunch.Core\Gauge.NCrunch.Core.csproj", "{D5E5B372-0010-47AF-8BC1-58916F836EFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Core.Tests", "src\Tests\Gauge.NCrunch.Core.Tests\Gauge.NCrunch.Core.Tests.csproj", "{8B582CF3-62C1-423A-A302-D9EDB105B762}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +66,14 @@ Global
 		{62A19060-3C3D-498A-8566-2D1047D33601}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62A19060-3C3D-498A-8566-2D1047D33601}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62A19060-3C3D-498A-8566-2D1047D33601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E5B372-0010-47AF-8BC1-58916F836EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E5B372-0010-47AF-8BC1-58916F836EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E5B372-0010-47AF-8BC1-58916F836EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E5B372-0010-47AF-8BC1-58916F836EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B582CF3-62C1-423A-A302-D9EDB105B762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B582CF3-62C1-423A-A302-D9EDB105B762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B582CF3-62C1-423A-A302-D9EDB105B762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B582CF3-62C1-423A-A302-D9EDB105B762}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,5 +89,7 @@ Global
 		{DB43F5D1-A223-4029-ACF2-FC324222DB25} = {332EF9A6-F35B-452C-9E02-55475504639B}
 		{1279C59F-B54E-46CA-B41C-4595A4AACF7E} = {332EF9A6-F35B-452C-9E02-55475504639B}
 		{62A19060-3C3D-498A-8566-2D1047D33601} = {94166A8E-13D4-4C49-8334-D9C65F12488E}
+		{D5E5B372-0010-47AF-8BC1-58916F836EFE} = {94166A8E-13D4-4C49-8334-D9C65F12488E}
+		{8B582CF3-62C1-423A-A302-D9EDB105B762} = {332EF9A6-F35B-452C-9E02-55475504639B}
 	EndGlobalSection
 EndGlobal

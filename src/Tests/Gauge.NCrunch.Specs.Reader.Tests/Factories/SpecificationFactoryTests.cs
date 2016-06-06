@@ -8,12 +8,11 @@ namespace Gauge.NCrunch.Specs.Reader.Tests.Factories
     public sealed class SpecificationFactoryTests
     {
         [Fact]
-        public void ctor_StepFactoryRequired()
+        public void ctor_ScenarioFactoryRequired()
         {
             Assert.Throws<ArgumentNullException>(
-                "stepFactory",
-                () => new SpecificationFactory(
-                    null));
+                "scenarioFactory",
+                () => new SpecificationFactory(null));
         }
 
         [Fact]
