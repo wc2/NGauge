@@ -100,6 +100,7 @@
     <Compile Include="StepDefinitions\StepDefinitionNotFoundExceptionTests.cs" />
     <Compile Include="StepDefinitions\StepDefinitionResolverTests.cs" />
     <Compile Include="StepDefinitions\StepDefinitionTests.cs" />
+    <Compile Include="StepDefinitions\StepMatcherTests.cs" />
     <Compile Include="StepDefinitions\TestCases\TypeWithOneStepAttributedMethod.cs" />
     <Compile Include="StepDefinitions\TestCases\TypeWithTwoStepAttributedMethods.cs" />
     <Compile Include="Steps\StepFactoryTests.cs" />
