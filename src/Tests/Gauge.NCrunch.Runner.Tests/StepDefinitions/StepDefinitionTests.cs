@@ -36,7 +36,7 @@ namespace Gauge.NCrunch.Runner.Tests.StepDefinitions
         [Theory, AutoData]
         public void ctor_SetsStepText(string stepText)
         {
-            IStepDefinition stepDefinition = new StepDefinition(stepText, Substitute.For<MethodInfo>());
+            var stepDefinition = new StepDefinition(stepText, Substitute.For<MethodInfo>());
 
             stepDefinition
                 .StepText
@@ -48,7 +48,7 @@ namespace Gauge.NCrunch.Runner.Tests.StepDefinitions
         public void ctor_SetsMethodInfo()
         {
             var methodInfo = Substitute.For<MethodInfo>();
-            IStepDefinition stepDefinition = new StepDefinition("some step", methodInfo);
+            var stepDefinition = new StepDefinition("some step", methodInfo);
 
             stepDefinition
                 .MethodInfo

@@ -3,7 +3,7 @@ using Gauge.NCrunch.Runner.CodeContracts;
 
 namespace Gauge.NCrunch.Runner.StepDefinitions
 {
-    internal class StepDefinition : IStepDefinition
+    internal sealed class StepDefinition : IStepDefinition
     {
         internal StepDefinition(string stepText, MethodInfo methodInfo)
         {
