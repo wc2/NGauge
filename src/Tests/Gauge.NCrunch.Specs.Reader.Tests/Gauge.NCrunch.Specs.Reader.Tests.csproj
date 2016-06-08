@@ -43,7 +43,10 @@
       <HintPath>..\..\..\packages\FluentAssertions.4.7.0\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Gauge.CSharp.Core, Version=0.0.2.0, Culture=neutral, PublicKeyToken=4d2d442b45695923, processorArchitecture=MSIL" />
+    <Reference Include="Gauge.CSharp.Core, Version=0.0.2.0, Culture=neutral, PublicKeyToken=4d2d442b45695923, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Gauge.CSharp.Core.0.0.2.0\lib\net45\Gauge.CSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Google.ProtocolBuffers, Version=2.4.1.555, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.dll</HintPath>
       <Private>True</Private>
