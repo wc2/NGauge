@@ -59,6 +59,7 @@
     <Compile Include="Factories\IScenarioFactory.cs" />
     <Compile Include="Factories\ISpecificationFactory.cs" />
     <Compile Include="Factories\IStepFactory.cs" />
+    <Compile Include="Factories\ParameterFactory.cs" />
     <Compile Include="Factories\ScenarioFactory.cs" />
     <Compile Include="Factories\SpecificationFactory.cs" />
     <Compile Include="Factories\StepFactory.cs" />

@@ -99,6 +99,7 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="Factories\ParameterFactoryTests.cs" />
     <Compile Include="Factories\ScenarioFactoryTests.cs" />
     <Compile Include="Factories\SpecificationFactoryTests.cs" />
     <Compile Include="Factories\StepFactoryTests.cs" />
