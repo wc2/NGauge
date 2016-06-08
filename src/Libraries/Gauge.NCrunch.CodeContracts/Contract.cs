@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Gauge.NCrunch.Runner.CodeContracts
+namespace Gauge.NCrunch.CodeContracts
 {
-    internal static class Contract
+    public static class Contract
     {
-        internal static void RequiresNotNull<T>(T value, string parameterName)
+        public static void RequiresNotNull<T>(T value, string parameterName)
         {
             if (value == null)
             {
@@ -12,7 +12,7 @@ namespace Gauge.NCrunch.Runner.CodeContracts
             }
         }
 
-        internal static void RequiresNotNull(string value, string parameterName)
+        public static void RequiresNotNull(string value, string parameterName)
         {
             if (string.IsNullOrWhiteSpace(value))
             {

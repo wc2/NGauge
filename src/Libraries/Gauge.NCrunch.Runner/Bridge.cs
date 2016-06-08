@@ -1,4 +1,5 @@
-﻿using Gauge.NCrunch.Runner.StepDefinitions;
+﻿using Gauge.NCrunch.Core;
+using Gauge.NCrunch.Runner.StepDefinitions;
 using Gauge.NCrunch.Runner.Steps;
 
 namespace Gauge.NCrunch.Runner
@@ -24,7 +25,8 @@ namespace Gauge.NCrunch.Runner
             return new StepDefinitionResolver(
                 new StepAttributedMethodResolver(),
                 new StepDefinitionFactory(),
-                new StepMatcher());
+                new StepMatcher(
+                    new StepTextParameterExtractor()));
         }
     }
 }

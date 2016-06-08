@@ -1,5 +1,5 @@
 using System.Reflection;
-using Gauge.NCrunch.Runner.CodeContracts;
+using Gauge.NCrunch.CodeContracts;
 
 namespace Gauge.NCrunch.Runner.Steps
 {

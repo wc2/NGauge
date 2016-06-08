@@ -1,28 +1,24 @@
-using System.Linq;
-using System.Text.RegularExpressions;
+using Gauge.NCrunch.CodeContracts;
+using Gauge.NCrunch.Core;
 
 namespace Gauge.NCrunch.Runner.StepDefinitions
 {
     internal sealed class StepMatcher : IStepMatcher
     {
-        private static readonly Regex SimpleParameterExpression = new Regex("\\\"([A-z\\d-/:.]{1,})\"");
-        private static readonly Regex SpecialParameterExpression = new Regex(@"<([A-z\d-/:.]{1,})>");
-        private static readonly Regex[] ParameterisedStepExpressions = { SpecialParameterExpression, SimpleParameterExpression };
-        private const string ParameterPlaceholder = "[*]";
+        private readonly IStepTextParameterExtractor _stepTextParameterExtractor;
+
+        public StepMatcher(IStepTextParameterExtractor stepTextParameterExtractor)
+        {
+            Contract.RequiresNotNull(stepTextParameterExtractor, nameof(stepTextParameterExtractor));
+
+            _stepTextParameterExtractor = stepTextParameterExtractor;
+        }
 
         bool IStepMatcher.IsMatch(string stepDefinitionText, string stepText)
         {
             return string.Equals(
-                ExtractParameters(stepDefinitionText),
+                _stepTextParameterExtractor.ExtractParameters(stepDefinitionText),
                 stepText);
-        }
-
-        private static string ExtractParameters(string stepDefinitionText)
-        {
-            return ParameterisedStepExpressions
-                .Aggregate(
-                    stepDefinitionText,
-                    (current, expression) => expression.Replace(current, ParameterPlaceholder));
         }
     }
 }
