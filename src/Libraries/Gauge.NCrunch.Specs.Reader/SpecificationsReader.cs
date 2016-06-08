@@ -5,12 +5,12 @@ using Gauge.NCrunch.Specs.Reader.Factories;
 
 namespace Gauge.NCrunch.Specs.Reader
 {
-    public sealed class SpecificationReader
+    internal sealed class SpecificationsReader
     {
         private readonly IGaugeSpecificationsService _gaugeSpecificationService;
         private readonly ISpecificationFactory _specificationFactory;
 
-        public SpecificationReader(IGaugeSpecificationsService gaugeSpecificationService, ISpecificationFactory specificationFactory)
+        public SpecificationsReader(IGaugeSpecificationsService gaugeSpecificationService, ISpecificationFactory specificationFactory)
         {
             Contract.RequiresNotNull(gaugeSpecificationService, nameof(gaugeSpecificationService));
             Contract.RequiresNotNull(specificationFactory, nameof(specificationFactory));

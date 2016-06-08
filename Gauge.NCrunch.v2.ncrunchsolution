@@ -8,7 +8,11 @@
   <FrameworkUtilisationTypeForMSpec>UseStaticAnalysis</FrameworkUtilisationTypeForMSpec>
   <FrameworkUtilisationTypeForMSTest>UseStaticAnalysis</FrameworkUtilisationTypeForMSTest>
   <FrameworkUtilisationTypeForXUnit2>UseDynamicAnalysis</FrameworkUtilisationTypeForXUnit2>
-  <NCrunchCacheStoragePath />
+  <NCrunchCacheStoragePath></NCrunchCacheStoragePath>
   <MetricsExclusionList>
+Scenario.cs:src\Libraries\Gauge.NCrunch.Runner\Gauge.NCrunch.Runner.csproj
+src\Tests\Gauge.NCrunch.Runner.Tests\Gauge.NCrunch.Runner.Tests.csproj\StepDefinitions\TestCases
+StepDefinitions\TestCases\TypeWithOneStepAttributedMethod.cs:src\Tests\Gauge.NCrunch.Runner.Tests\Gauge.NCrunch.Runner.Tests.csproj
+StepDefinitions\TestCases\TypeWithTwoStepAttributedMethods.cs:src\Tests\Gauge.NCrunch.Runner.Tests\Gauge.NCrunch.Runner.Tests.csproj
 </MetricsExclusionList>
 </SolutionConfiguration>
