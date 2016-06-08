@@ -85,6 +85,10 @@
       <Project>{99DEACFE-286C-4482-97F4-4B64518E4562}</Project>
       <Name>Gauge.NCrunch.Specs.Writer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Specs\Gauge.NCrunch.Specs.csproj">
+      <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
+      <Name>Gauge.NCrunch.Specs</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -3,12 +3,12 @@ using Xunit;
 
 namespace Gauge.NCrunch.Runner.Tests
 {
-    public sealed class BridgeTests
+    public sealed class ScenarioTests
     {
         [Fact]
-        public void CreateScenarioRunner_ReturnsScenarioRunner()
+        public void CreateRunner_ReturnsScenarioRunner()
         {
-            var scenarioRunner = Bridge.CreateScenarioRunner();
+            var scenarioRunner = Scenario.CreateRunner();
 
             scenarioRunner
                 .Should()

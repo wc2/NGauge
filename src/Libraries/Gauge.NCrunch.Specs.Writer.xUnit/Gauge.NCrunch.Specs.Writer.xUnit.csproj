@@ -47,9 +47,9 @@
     <Compile Include="XUnitSpecificationWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gauge.NCrunch.Core\Gauge.NCrunch.Core.csproj">
-      <Project>{d5e5b372-0010-47af-8bc1-58916f836efe}</Project>
-      <Name>Gauge.NCrunch.Core</Name>
+    <ProjectReference Include="..\Gauge.NCrunch.CodeContracts\Gauge.NCrunch.CodeContracts.csproj">
+      <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
+      <Name>Gauge.NCrunch.CodeContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Gauge.NCrunch.Specs.Writer\Gauge.NCrunch.Specs.Writer.csproj">
       <Project>{99deacfe-286c-4482-97f4-4b64518e4562}</Project>
