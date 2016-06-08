@@ -36,6 +36,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Specs.Writer"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Specs.Writer.xUnit", "src\Libraries\Gauge.NCrunch.Specs.Writer.xUnit\Gauge.NCrunch.Specs.Writer.xUnit.csproj", "{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gauge.NCrunch.Specs.Writer.xUnit.Tests", "src\Tests\Gauge.NCrunch.Specs.Writer.xUnit.Tests\Gauge.NCrunch.Specs.Writer.xUnit.Tests.csproj", "{5409632C-1B61-4408-9DA7-6768CD86FEDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5409632C-1B61-4408-9DA7-6768CD86FEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5409632C-1B61-4408-9DA7-6768CD86FEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5409632C-1B61-4408-9DA7-6768CD86FEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5409632C-1B61-4408-9DA7-6768CD86FEDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,5 +111,6 @@ Global
 		{8B582CF3-62C1-423A-A302-D9EDB105B762} = {332EF9A6-F35B-452C-9E02-55475504639B}
 		{99DEACFE-286C-4482-97F4-4B64518E4562} = {94166A8E-13D4-4C49-8334-D9C65F12488E}
 		{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472} = {94166A8E-13D4-4C49-8334-D9C65F12488E}
+		{5409632C-1B61-4408-9DA7-6768CD86FEDD} = {332EF9A6-F35B-452C-9E02-55475504639B}
 	EndGlobalSection
 EndGlobal

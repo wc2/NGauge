@@ -44,8 +44,13 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XUnitSpecificationWriter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gauge.NCrunch.Core\Gauge.NCrunch.Core.csproj">
+      <Project>{d5e5b372-0010-47af-8bc1-58916f836efe}</Project>
+      <Name>Gauge.NCrunch.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gauge.NCrunch.Specs.Writer\Gauge.NCrunch.Specs.Writer.csproj">
       <Project>{99deacfe-286c-4482-97f4-4b64518e4562}</Project>
       <Name>Gauge.NCrunch.Specs.Writer</Name>
