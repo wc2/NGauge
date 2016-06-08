@@ -107,7 +107,7 @@
     <Compile Include="Models\ScenarioTests.cs" />
     <Compile Include="Models\SpecificationTests.cs" />
     <Compile Include="Models\StepTests.cs" />
-    <Compile Include="SpecificationReaderTests.cs" />
+    <Compile Include="SpecificationsReaderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Gauge.NCrunch.Core\Gauge.NCrunch.Core.csproj">

@@ -8,14 +8,14 @@ using Xunit;
 
 namespace Gauge.NCrunch.Specs.Reader.Tests
 {
-    public sealed class SpecificationReaderTests
+    public sealed class SpecificationsReaderTests
     {
         [Fact]
         public void ctor_GaugeSpecifificationServiceRequired()
         {
             Assert.Throws<ArgumentNullException>(
                 "gaugeSpecificationService",
-                () => new SpecificationReader(
+                () => new SpecificationsReader(
                     null,
                     Substitute.For<ISpecificationFactory>()));
         }
@@ -25,7 +25,7 @@ namespace Gauge.NCrunch.Specs.Reader.Tests
         {
             Assert.Throws<ArgumentNullException>(
                 "specificationFactory",
-                () => new SpecificationReader(
+                () => new SpecificationsReader(
                     Substitute.For<IGaugeSpecificationsService>(),
                     null));
         }
@@ -48,7 +48,7 @@ namespace Gauge.NCrunch.Specs.Reader.Tests
                 .Create(Arg.Any<ProtoSpec>())
                 .Returns(spec1, spec2);
 
-            var reader = new SpecificationReader(gaugeSpecificationService, specificationFactory);
+            var reader = new SpecificationsReader(gaugeSpecificationService, specificationFactory);
 
             var actualSpecifications = reader.ReadSepecifications();
 

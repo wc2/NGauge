@@ -4,18 +4,18 @@ using Gauge.NCrunch.Runner.Steps;
 
 namespace Gauge.NCrunch.Runner
 {
-    public static class Bridge
+    public static class Scenario
     {
         private static readonly IStepDefinitionResolver StepDefinitionResolver;
         private static readonly IStepFactory StepFactory;
 
-        static Bridge()
+        static Scenario()
         {
             StepDefinitionResolver = CreateStepDefinitionResolver();
             StepFactory = new StepFactory();
         }
 
-        public static IScenarioRunner CreateScenarioRunner()
+        public static IScenarioRunner CreateRunner()
         {
             return new ScenarioRunner(StepDefinitionResolver, StepFactory);
         }
