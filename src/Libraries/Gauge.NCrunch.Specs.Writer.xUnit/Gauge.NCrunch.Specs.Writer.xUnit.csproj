@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99DEACFE-286C-4482-97F4-4B64518E4562}</ProjectGuid>
+    <ProjectGuid>{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gauge.NCrunch.Specs.Writer</RootNamespace>
-    <AssemblyName>Gauge.NCrunch.Specs.Writer</AssemblyName>
+    <RootNamespace>Gauge.NCrunch.Specs.Writer.xUnit</RootNamespace>
+    <AssemblyName>Gauge.NCrunch.Specs.Writer.xUnit</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gauge.NCrunch.Specs.Writer\Gauge.NCrunch.Specs.Writer.csproj">
+      <Project>{99deacfe-286c-4482-97f4-4b64518e4562}</Project>
+      <Name>Gauge.NCrunch.Specs.Writer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gauge.NCrunch.Specs\Gauge.NCrunch.Specs.csproj">
       <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
       <Name>Gauge.NCrunch.Specs</Name>
