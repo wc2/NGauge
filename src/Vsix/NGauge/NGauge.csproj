@@ -187,6 +187,10 @@
       <Project>{09bed616-9729-4e84-bceb-3979d89a3bd5}</Project>
       <Name>NGauge.Bridge</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\NGauge.Core\NGauge.Core.csproj">
+      <Project>{D5E5B372-0010-47AF-8BC1-58916F836EFE}</Project>
+      <Name>NGauge.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\NGauge.Specs.Reader\NGauge.Specs.Reader.csproj">
       <Project>{AD701195-32D4-4BE4-B2F5-4830ECCDAA7A}</Project>
       <Name>NGauge.Specs.Reader</Name>

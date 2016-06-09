@@ -5,7 +5,7 @@ using NGauge.Core;
 
 namespace NGauge.Specs.Reader.Factories
 {
-    internal sealed class ParameterFactory : IParameterFactory
+    public sealed class ParameterFactory : IParameterFactory
     {
         object[] IParameterFactory.Create(string stepText)
         {
