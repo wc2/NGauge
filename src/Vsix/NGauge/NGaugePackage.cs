@@ -10,6 +10,7 @@ using NGauge.Extensions;
 using NGauge.Specs.Reader;
 using NGauge.Specs.Reader.Factories;
 using NGauge.Specs.Writer;
+using SystemWrapper.IO;
 
 namespace NGauge
 {
@@ -59,7 +60,8 @@ namespace NGauge
             return new SpecificationsWriter(
                 null,
                 null,
-                null,
+                new FolderDeletionService(
+                    new DirectoryWrap()), 
                 null);
         }
 
