@@ -5,7 +5,7 @@ using NGauge.Specs.Reader.Models;
 
 namespace NGauge.Specs.Reader.Factories
 {
-    internal sealed class ScenarioFactory : IScenarioFactory
+    public sealed class ScenarioFactory : IScenarioFactory
     {
         private readonly IStepFactory _stepFactory;
 

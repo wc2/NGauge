@@ -5,7 +5,11 @@ using System.Runtime.InteropServices;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using NGauge.Bridge;
+using NGauge.Core;
 using NGauge.Extensions;
+using NGauge.Specs.Reader;
+using NGauge.Specs.Reader.Factories;
+using NGauge.Specs.Writer;
 
 namespace NGauge
 {
@@ -35,8 +39,24 @@ namespace NGauge
         private void InitialiseBridgingComponents()
         {
             _generator = new Generator(
-                null),
-                null);
+                CreateSpecificationsReader(),
+                CreateSpecificationsWriter());
+        }
+
+        private static ISpecificationsReader CreateSpecificationsReader()
+        {
+            return new SpecificationsReader(
+                new GaugeSpecificationsService(123),
+                new SpecificationFactory(
+                    new ScenarioFactory(
+                        new StepFactory(
+                            new StepTextParameterExtractor(),
+                            new ParameterFactory()))));
+        }
+
+        private static ISpecificationsWriter CreateSpecificationsWriter()
+        {
+            return new SpecificationsWriter();
         }
 
         private void MonitorGaugeDocuments()

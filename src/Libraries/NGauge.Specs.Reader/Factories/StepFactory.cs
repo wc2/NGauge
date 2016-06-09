@@ -5,7 +5,7 @@ using NGauge.Specs.Reader.Models;
 
 namespace NGauge.Specs.Reader.Factories
 {
-    internal sealed class StepFactory : IStepFactory
+    public sealed class StepFactory : IStepFactory
     {
         private readonly IStepTextParameterExtractor _stepTextParameterExtractor;
         private readonly IParameterFactory _parameterFactory;

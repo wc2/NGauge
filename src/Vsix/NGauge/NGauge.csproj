@@ -55,6 +55,7 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="Extensions\DocumentExtensions.cs" />
+    <Compile Include="Extensions\ProjectExtensions.cs" />
     <Compile Include="NGaugePackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
