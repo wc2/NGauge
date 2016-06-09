@@ -43,12 +43,20 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="ICodeSavingService.cs" />
+    <Compile Include="IFolderDeletionService.cs" />
+    <Compile Include="IGeneratedCodeNamingService.cs" />
     <Compile Include="IGetInvariantTestAttributor.cs" />
+    <Compile Include="ISpecificationCodeGenerator.cs" />
     <Compile Include="ISpecificationsWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecificationsWriter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\NGauge.CodeContracts\NGauge.CodeContracts.csproj">
+      <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
+      <Name>NGauge.CodeContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NGauge.Specs\NGauge.Specs.csproj">
       <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
       <Name>NGauge.Specs</Name>

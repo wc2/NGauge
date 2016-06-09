@@ -56,7 +56,11 @@ namespace NGauge
 
         private static ISpecificationsWriter CreateSpecificationsWriter()
         {
-            return new SpecificationsWriter();
+            return new SpecificationsWriter(
+                null,
+                null,
+                null,
+                null);
         }
 
         private void MonitorGaugeDocuments()
