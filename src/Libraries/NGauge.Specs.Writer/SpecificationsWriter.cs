@@ -39,7 +39,7 @@ namespace NGauge.Specs.Writer
             var generationTasks = specifications
                 .AsParallel()
                 .Select(_specificationCodeGenerator.GenerateCode)
-                .Select(generatedCode => _codeSavingService.SaveAsync(generatedCode, string.Empty));
+                .Select(generatedCode => _codeSavingService.SaveAsync(generatedCode, generatedCodePath));
 
             await Task.WhenAll(generationTasks);
 
