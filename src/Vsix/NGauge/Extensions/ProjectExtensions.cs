@@ -10,6 +10,7 @@ namespace NGauge.Extensions
             if (!project.Contains(fileName))
             {
                 project.ProjectItems.AddFromFile(fileName);
+                project.Save();
             }
         }
 
