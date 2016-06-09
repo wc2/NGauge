@@ -154,9 +154,15 @@ namespace NGauge.Specs.Writer.Tests
         }
 
         [Theory, AutoData]
-        public async Task WriteSpecificationsAsync_SavesGeneratedSpecificationCodeToExpectedLocation(string projectPath, string expectedGeneratedCodePath)
+        public async Task WriteSpecificationsAsync_SavesGeneratedSpecificationCodeToExpectedLocation(string projectPath,
+            string expectedGeneratedCodePath)
         {
             const int sampleSize = 1;
+
+            var generatedCodeNamingService = Substitute.For<IGeneratedCodeNamingService>();
+            generatedCodeNamingService
+                .GetGeneratedCodePath(projectPath)
+                .Returns(expectedGeneratedCodePath);
 
             var specifications = GetSample<ISpecification>(sampleSize);
             var specificationCodeGenerator = CreateMockCodeGenerator(
@@ -165,10 +171,11 @@ namespace NGauge.Specs.Writer.Tests
 
             var codeSavingService = Substitute.For<ICodeSavingService>();
             var writer = CreateSpecificationWriter(
+                generatedCodeNamingService: generatedCodeNamingService,
                 specificationCodeGenerator: specificationCodeGenerator,
                 codeSavingService: codeSavingService);
 
-            await writer.WriteSpecificationsAsync(specifications, "some path");
+            await writer.WriteSpecificationsAsync(specifications, projectPath);
 
             codeSavingService
                 .Received()
