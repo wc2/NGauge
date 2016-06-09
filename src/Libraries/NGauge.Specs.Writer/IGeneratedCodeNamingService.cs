@@ -1,6 +1,7 @@
 ﻿namespace NGauge.Specs.Writer
 {
-    public interface IGeneratedCodeNamingService {
-        string GetGeneratedCodeFolder(string projectPath);
+    public interface IGeneratedCodeNamingService
+    {
+        string GetGeneratedCodePath(string projectPath);
     }
 }

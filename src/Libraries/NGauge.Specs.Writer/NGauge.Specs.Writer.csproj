@@ -48,6 +48,8 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="FolderDeletionService.cs" />
+    <Compile Include="GeneratedCodeNamingService.cs" />
+    <Compile Include="IGeneratedCodeNamespaceProvider.cs" />
     <Compile Include="ICodeSavingService.cs" />
     <Compile Include="IFolderDeletionService.cs" />
     <Compile Include="IGeneratedCodeNamingService.cs" />

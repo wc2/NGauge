@@ -94,7 +94,7 @@ namespace NGauge.Specs.Writer.Tests
         {
             var generatedCodeNamingService = Substitute.For<IGeneratedCodeNamingService>();
             generatedCodeNamingService
-                .GetGeneratedCodeFolder(projectPath)
+                .GetGeneratedCodePath(projectPath)
                 .Returns(generatedCodePath);
 
             var folderDeletionService = Substitute.For<IFolderDeletionService>();
@@ -181,7 +181,7 @@ namespace NGauge.Specs.Writer.Tests
         {
             var generatedCodeNamingService = Substitute.For<IGeneratedCodeNamingService>();
             generatedCodeNamingService
-                .GetGeneratedCodeFolder(Arg.Any<string>())
+                .GetGeneratedCodePath(Arg.Any<string>())
                 .Returns(expectedGeneratedCodePath);
 
             var writer = CreateSpecificationWriter(

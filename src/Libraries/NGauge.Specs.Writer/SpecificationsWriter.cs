@@ -32,7 +32,7 @@ namespace NGauge.Specs.Writer
             Contract.RequiresNotNull(specifications, nameof(specifications));
             Contract.RequiresNotNull(projectPath, nameof(projectPath));
 
-            var generatedCodePath = _generatedCodeNamingService.GetGeneratedCodeFolder(projectPath);
+            var generatedCodePath = _generatedCodeNamingService.GetGeneratedCodePath(projectPath);
 
             _folderDeletionService.Delete(generatedCodePath);
 
