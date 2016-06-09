@@ -1,0 +1,18 @@
+﻿<SolutionConfiguration>
+  <FileVersion>1</FileVersion>
+  <InferProjectReferencesUsingAssemblyNames>false</InferProjectReferencesUsingAssemblyNames>
+  <AllowParallelTestExecution>true</AllowParallelTestExecution>
+  <AllowTestsToRunInParallelWithThemselves>true</AllowTestsToRunInParallelWithThemselves>
+  <FrameworkUtilisationTypeForNUnit>UseDynamicAnalysis</FrameworkUtilisationTypeForNUnit>
+  <FrameworkUtilisationTypeForGallio>UseStaticAnalysis</FrameworkUtilisationTypeForGallio>
+  <FrameworkUtilisationTypeForMSpec>UseStaticAnalysis</FrameworkUtilisationTypeForMSpec>
+  <FrameworkUtilisationTypeForMSTest>UseStaticAnalysis</FrameworkUtilisationTypeForMSTest>
+  <FrameworkUtilisationTypeForXUnit2>UseDynamicAnalysis</FrameworkUtilisationTypeForXUnit2>
+  <NCrunchCacheStoragePath></NCrunchCacheStoragePath>
+  <MetricsExclusionList>
+Scenario.cs:src\Libraries\NGauge.Runner\NGauge.Runner.csproj
+src\Tests\NGauge.Runner.Tests\NGauge.Runner.Tests.csproj\StepDefinitions\TestCases
+StepDefinitions\TestCases\TypeWithOneStepAttributedMethod.cs:src\Tests\NGauge.Runner.Tests\NGauge.Runner.Tests.csproj
+StepDefinitions\TestCases\TypeWithTwoStepAttributedMethods.cs:src\Tests\NGauge.Runner.Tests\NGauge.Runner.Tests.csproj
+</MetricsExclusionList>
+</SolutionConfiguration>

@@ -1,12 +1,12 @@
-# Gauge.NCrunch
+# NGauge
 
-## Gauge bridge to NCrunch
+## Bridging the gap between NCrunch and Gauge
 
-This software provides a bridge between [Gauge](http://getgauge.io/) and [NCrunch](https://ncrunch.net/), allowing NCrunch to execute your Gauge specifications in Visual Studio.
+This software provides a bridge between [NCrunch](https://ncrunch.net/) and [Gauge](http://getgauge.io/), allowing NCrunch to execute your Gauge specifications in Visual Studio.
 
 ## License
 
-Gauge.NCrunch is released under Apache License 2.0
+NGauge is released under Apache License 2.0
 
 ## Copyright
 
