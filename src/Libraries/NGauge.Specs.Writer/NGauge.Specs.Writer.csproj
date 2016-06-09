@@ -38,11 +38,16 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="SystemWrapper, Version=0.4.4190.25852, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SystemWrapper.0.4\lib\SystemWrapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="FolderDeletionService.cs" />
     <Compile Include="ICodeSavingService.cs" />
     <Compile Include="IFolderDeletionService.cs" />
     <Compile Include="IGeneratedCodeNamingService.cs" />
@@ -61,6 +66,9 @@
       <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
       <Name>NGauge.Specs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

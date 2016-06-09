@@ -1,6 +1,7 @@
 ﻿namespace NGauge.Specs.Writer
 {
-    public interface IFolderDeletionService {
+    public interface IFolderDeletionService
+    {
         void Delete(string path);
     }
 }
