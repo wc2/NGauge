@@ -91,6 +91,7 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="CodeSavingServiceTests.cs" />
     <Compile Include="FolderDeletionServiceTests.cs" />
     <Compile Include="GeneratedCodeNamespaceProviderTests.cs" />
     <Compile Include="GeneratedCodeNamingServiceTests.cs" />

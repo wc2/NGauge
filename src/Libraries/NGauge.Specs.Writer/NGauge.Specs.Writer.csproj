@@ -51,11 +51,13 @@
     <Compile Include="FolderDeletionService.cs" />
     <Compile Include="GeneratedCodeNamespaceProvider.cs" />
     <Compile Include="GeneratedCodeNamingService.cs" />
+    <Compile Include="IFolderCreationService.cs" />
     <Compile Include="IGeneratedCodeNamespaceProvider.cs" />
     <Compile Include="ICodeSavingService.cs" />
     <Compile Include="IFolderDeletionService.cs" />
     <Compile Include="IGeneratedCodeNamingService.cs" />
     <Compile Include="IGetInvariantTestAttributor.cs" />
+    <Compile Include="IIndentedTextWriterFactory.cs" />
     <Compile Include="ISpecificationCodeGenerator.cs" />
     <Compile Include="ISpecificationsWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
