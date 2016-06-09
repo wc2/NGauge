@@ -92,6 +92,7 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="FolderDeletionServiceTests.cs" />
+    <Compile Include="GeneratedCodeNamespaceProviderTests.cs" />
     <Compile Include="GeneratedCodeNamingServiceTests.cs" />
     <Compile Include="Helpers\NSubstituteHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
