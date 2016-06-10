@@ -3,7 +3,7 @@ using Xunit;
 
 namespace NGauge.Specs.Writer.xUnit
 {
-    public sealed class FactAttributor : IGetInvariantTestAttributor
+    internal sealed class FactAttributor : IGetInvariantTestAttributor
     {
         Type IGetInvariantTestAttributor.GetAttribute()
         {

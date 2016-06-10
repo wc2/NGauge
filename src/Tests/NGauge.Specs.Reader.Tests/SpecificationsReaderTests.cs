@@ -50,7 +50,7 @@ namespace NGauge.Specs.Reader.Tests
 
             var reader = new SpecificationsReader(gaugeSpecificationService, specificationFactory);
 
-            var actualSpecifications = reader.ReadSepecifications();
+            var actualSpecifications = reader.ReadSpecifications();
 
             actualSpecifications
                 .Should()

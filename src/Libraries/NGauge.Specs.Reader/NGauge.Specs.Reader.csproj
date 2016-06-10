@@ -29,7 +29,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>../../Common/Key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Gauge.CSharp.Core">
       <HintPath>..\..\..\packages\Gauge.CSharp.Core.0.0.2.0\lib\net45\Gauge.CSharp.Core.dll</HintPath>
     </Reference>
@@ -65,9 +75,11 @@
     <Compile Include="Factories\StepFactory.cs" />
     <Compile Include="GaugeSpecificationsService.cs" />
     <Compile Include="IGaugeSpecificationsService.cs" />
+    <Compile Include="ISpecificationsReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Scenario.cs" />
     <Compile Include="Models\Specification.cs" />
+    <Compile Include="ReaderModule.cs" />
     <Compile Include="SpecificationsReader.cs" />
     <Compile Include="Models\Step.cs" />
   </ItemGroup>

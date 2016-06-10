@@ -5,7 +5,7 @@ using NGauge.Specs.Reader.Factories;
 
 namespace NGauge.Specs.Reader
 {
-    internal sealed class SpecificationsReader
+    internal sealed class SpecificationsReader : ISpecificationsReader
     {
         private readonly IGaugeSpecificationsService _gaugeSpecificationService;
         private readonly ISpecificationFactory _specificationFactory;
@@ -19,7 +19,7 @@ namespace NGauge.Specs.Reader
             _specificationFactory = specificationFactory;
         }
 
-        public IEnumerable<ISpecification> ReadSepecifications()
+        public IEnumerable<ISpecification> ReadSpecifications()
         {
             return _gaugeSpecificationService
                 .GetSpecs()
