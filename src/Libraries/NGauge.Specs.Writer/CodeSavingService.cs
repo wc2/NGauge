@@ -1,6 +1,5 @@
 ﻿using System.CodeDom;
 using System.CodeDom.Compiler;
-using System.Threading.Tasks;
 using NGauge.CodeContracts;
 
 namespace NGauge.Specs.Writer
@@ -23,9 +22,19 @@ namespace NGauge.Specs.Writer
             _codeDomProvider = codeDomProvider;
         }
 
-        Task ICodeSavingService.SaveAsync(CodeCompileUnit generatedCode, string path)
+        void ICodeSavingService.Save(CodeCompileUnit generatedCode, string path)
         {
-            throw new System.NotImplementedException();
+            Contract.RequiresNotNull(generatedCode, nameof(generatedCode));
+            Contract.RequiresNotNull(path, nameof(path));
+
+            _folderCreationService.EnsureExists(path);
+            using (var indentedTextWriter = _indentedTextWriterFactory.Create(path))
+            {
+                _codeDomProvider.GenerateCodeFromCompileUnit(
+                    generatedCode,
+                    indentedTextWriter,
+                    new CodeGeneratorOptions());
+            }
         }
     }
 }

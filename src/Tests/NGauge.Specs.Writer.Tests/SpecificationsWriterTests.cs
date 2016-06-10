@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
-using NGauge.Specs.Writer.Tests.Helpers;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;
@@ -138,8 +137,8 @@ namespace NGauge.Specs.Writer.Tests
 
             var savedCode = new List<CodeCompileUnit>();
             var codeSavingService = Substitute.For<ICodeSavingService>();
-            await codeSavingService
-                .SaveAsync(
+            codeSavingService
+                .Save(
                     Arg.Do<CodeCompileUnit>(codeCompileUnit => savedCode.Add(codeCompileUnit)),
                     Arg.Any<string>());
 
@@ -179,8 +178,7 @@ namespace NGauge.Specs.Writer.Tests
 
             codeSavingService
                 .Received()
-                .SaveAsync(Arg.Any<CodeCompileUnit>(), expectedGeneratedCodePath)
-                .IgnoreAwaitForNSubstituteAssertion();
+                .Save(Arg.Any<CodeCompileUnit>(), expectedGeneratedCodePath);
         }
 
         [Theory, AutoData]

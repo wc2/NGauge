@@ -2,5 +2,6 @@
 {
     public interface IFolderCreationService
     {
+        void EnsureExists(string path);
     }
 }
