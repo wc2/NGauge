@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using NGauge.Core;
 using NGauge.Specs.Reader.Factories;
 
 namespace NGauge.Specs.Reader
@@ -22,6 +23,10 @@ namespace NGauge.Specs.Reader
             builder
                 .RegisterType<StepFactory>()
                 .As<IStepFactory>();
+
+            builder
+                .RegisterType<StepTextParameterExtractor>()
+                .As<IStepTextParameterExtractor>();
 
             builder
                 .RegisterType<ParameterFactory>()

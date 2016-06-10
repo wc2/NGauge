@@ -5,7 +5,7 @@ using NGauge.Specs.Writer;
 
 namespace NGauge.Bridge
 {
-    public sealed class Generator
+    internal sealed class Generator : IGenerator
     {
         private readonly ISpecificationsReader _specificationsReader;
         private readonly ISpecificationsWriter _specificationsWriter;
@@ -19,7 +19,7 @@ namespace NGauge.Bridge
             _specificationsWriter = specificationsWriter;
         }
 
-        public Task<string> CreateOrUpdateAsync(string projectPath)
+        Task<string> IGenerator.CreateOrUpdateAsync(string projectPath)
         {
             Contract.RequiresNotNull(projectPath, nameof(projectPath));
 

@@ -117,7 +117,7 @@ namespace NGauge.Bridge.Tests
                 .Be(expectedGeneratedCodeFile);
         }
 
-        private static Generator CreateGenerator(ISpecificationsReader specificationsReader = null,
+        private static IGenerator CreateGenerator(ISpecificationsReader specificationsReader = null,
             ISpecificationsWriter specificationsWriter = null)
         {
             return new Generator(
