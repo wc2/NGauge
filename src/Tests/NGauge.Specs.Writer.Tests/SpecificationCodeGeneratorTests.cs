@@ -163,6 +163,20 @@ namespace NGauge.Specs.Writer.Tests
                 .Be(true);
         }
 
+        [Fact]
+        public void GenerateCode_ScenarioCreatesRunner()
+        {
+            var generator = CreateSpecificationCodeGenerator();
+
+            var generatedCode = generator.GenerateCode(
+                GetMockSpecification(scenarios: GetSample<IScenario>()));
+
+            //ExpectedMethodShouldBeCalled(
+            //    GetTestStatements(generatedCode).FirstOrDefault(),
+            //    typeof(Runner.Scenario).FullName,
+            //    nameof(Runner.Scenario.CreateRunner));
+        }
+
         private static ISpecificationCodeGenerator CreateSpecificationCodeGenerator(
             IGeneratedCodeNamespaceProvider generatedCodeNamespaceProvider = null,
             IGetInvariantTestAttributor getInvariantTestAttributor = null)
@@ -224,16 +238,33 @@ namespace NGauge.Specs.Writer.Tests
             return GetNamespace(generatedCode).Types[0];
         }
 
-        private static IEnumerable<CodeTypeMember> GetTestMethods(CodeCompileUnit generatedCode)
+        private static IEnumerable<CodeMemberMethod> GetTestMethods(CodeCompileUnit generatedCode)
         {
             return GetTestClass(generatedCode)
                 .Members
                 .OfType<CodeMemberMethod>();
         }
 
+        private static IEnumerable<CodeStatement> GetTestStatements(CodeCompileUnit generatedCode)
+        {
+            return GetTestMethods(generatedCode)
+                .FirstOrDefault()
+                ?.Statements
+                .Cast<CodeStatement>();
+        }
+
         private static bool HasExpectedTestInvariantAttribute<T>(CodeTypeMember testMethod)
         {
             return testMethod.CustomAttributes[0].Name == typeof(T).FullName;
+        }
+
+        private static void ExpectedMethodShouldBeCalled(CodeMethodInvokeExpression invokeExpression, string expectedTypeName, string expectedMethodName)
+        {
+            invokeExpression
+                .Method
+                .MethodName
+                .Should()
+                .Be(expectedMethodName);
         }
     }
 }

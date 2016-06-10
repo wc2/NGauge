@@ -2,6 +2,7 @@ using System;
 using System.CodeDom;
 using System.Linq;
 using NGauge.CodeContracts;
+using NGauge.Runner;
 using NGauge.Specs.Writer.Providers;
 
 namespace NGauge.Specs.Writer
@@ -9,8 +10,14 @@ namespace NGauge.Specs.Writer
     internal sealed class SpecificationCodeGenerator : ISpecificationCodeGenerator
     {
         private const string RunnerNamespace = "NGauge.Runner";
+        private const string RunnerVariableName = "runner";
         private readonly IGeneratedCodeNamespaceProvider _generatedCodeNamespaceProvider;
         private readonly IGetInvariantTestAttributor _getInvariantTestAttributor;
+        private static readonly CodeMethodInvokeExpression CreateRunnerExpression =
+            new CodeMethodInvokeExpression(
+                new CodeTypeReferenceExpression(
+                    typeof(Runner.Scenario).FullName),
+                    nameof(Runner.Scenario.CreateRunner));
 
         public SpecificationCodeGenerator(IGeneratedCodeNamespaceProvider generatedCodeNamespaceProvider,
             IGetInvariantTestAttributor getInvariantTestAttributor)
@@ -57,7 +64,7 @@ namespace NGauge.Specs.Writer
                 .Select(CreateTestMethod)
                 .ToArray();
 
-            testClass.Members.AddRange(new CodeTypeMemberCollection(testMethods));
+            testClass.Members.AddRange(testMethods);
 
             return testClass;
         }
@@ -66,10 +73,37 @@ namespace NGauge.Specs.Writer
         {
             var invariantTestAttribute = _getInvariantTestAttributor.GetAttribute();
             var testMethod = new CodeMemberMethod {Name = scenario.Name};
+            var runnerDeclaration = new CodeVariableDeclarationStatement(
+                type: typeof(IScenarioRunner),
+                name: RunnerVariableName,
+                initExpression: CreateRunnerExpression);
 
             testMethod.CustomAttributes.Add(new CodeAttributeDeclaration(invariantTestAttribute.FullName));
+            testMethod.Statements.Add(runnerDeclaration);
+
+            scenario
+                .Steps
+                .Select(CreateTestStatement)
+                .ToList()
+                .ForEach(statement => testMethod.Statements.Add(statement));
 
             return testMethod;
+        }
+
+        private static CodeMethodInvokeExpression CreateTestStatement(IStep step)
+        {
+            return new CodeMethodInvokeExpression(
+                new CodeVariableReferenceExpression(RunnerVariableName),
+                nameof(IScenarioRunner.ExecuteStep),
+                step
+                    .Parameters
+                    ?.Select(CreateParameter)
+                    .ToArray());
+        }
+
+        private static CodePrimitiveExpression CreateParameter(object parameter)
+        {
+            return new CodePrimitiveExpression(parameter);
         }
     }
 }
