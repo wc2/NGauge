@@ -49,6 +49,7 @@ namespace NGauge
         {
             var builder = new ContainerBuilder();
 
+            builder.RegisterInstance(new GaugeSpecificationsService(1234));
             builder.RegisterModule<ReaderModule>();
             builder.RegisterModule<WriterModule>();
             builder.RegisterModule<xUnitModule>();

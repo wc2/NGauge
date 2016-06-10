@@ -11,9 +11,9 @@ git clone git@github.com:yourUserName/NGauge.git               # Clone your fork
 cd NGauge                                                      # Change directory
 git remote add upstream https://github.com/wc2/NGauge.git      # Assign original repository to a remote named 'upstream'
 git fetch upstream                                             # Pull in changes not present in your local repository
-git checkout -b my-new-feature                                 # Create your feature branch
+git checkout -b features/my-new-feature                        # Create your feature branch
 git commit -am 'Add some feature'                              # Commit your changes
-git push origin my-new-feature                                 # Push to the branch
+git push origin features/my-new-feature                        # Push to the branch
 ```
 
 Once you've pushed a feature branch to your forked repo, you're ready to open a pull request. We favour pull requests with very small, single commits with a single purpose.
