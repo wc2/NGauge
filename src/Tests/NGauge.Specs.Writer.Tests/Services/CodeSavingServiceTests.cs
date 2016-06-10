@@ -2,11 +2,13 @@
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.IO;
+using NGauge.Specs.Writer.Factories;
+using NGauge.Specs.Writer.Services;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using Xunit;
 
-namespace NGauge.Specs.Writer.Tests
+namespace NGauge.Specs.Writer.Tests.Services
 {
     public sealed class CodeSavingServiceTests
     {

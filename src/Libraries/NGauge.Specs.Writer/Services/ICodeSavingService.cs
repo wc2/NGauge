@@ -1,6 +1,6 @@
 ﻿using System.CodeDom;
 
-namespace NGauge.Specs.Writer
+namespace NGauge.Specs.Writer.Services
 {
     public interface ICodeSavingService
     {

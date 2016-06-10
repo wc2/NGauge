@@ -1,7 +1,8 @@
 ﻿using FluentAssertions;
+using NGauge.Specs.Writer.Providers;
 using Xunit;
 
-namespace NGauge.Specs.Writer.Tests
+namespace NGauge.Specs.Writer.Tests.Providers
 {
     public sealed class GeneratedCodeNamespaceProviderTests
     {

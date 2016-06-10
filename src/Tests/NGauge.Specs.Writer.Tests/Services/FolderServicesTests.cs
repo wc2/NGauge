@@ -1,10 +1,11 @@
 ﻿using System;
+using NGauge.Specs.Writer.Services;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
 using SystemWrapper.IO;
 using Xunit;
 
-namespace NGauge.Specs.Writer.Tests
+namespace NGauge.Specs.Writer.Tests.Services
 {
     public sealed class FolderServicesTests
     {

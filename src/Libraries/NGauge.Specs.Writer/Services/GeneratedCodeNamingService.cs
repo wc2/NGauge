@@ -1,7 +1,8 @@
 using NGauge.CodeContracts;
+using NGauge.Specs.Writer.Providers;
 using SystemWrapper.IO;
 
-namespace NGauge.Specs.Writer
+namespace NGauge.Specs.Writer.Services
 {
     public sealed class GeneratedCodeNamingService : IGeneratedCodeNamingService
     {

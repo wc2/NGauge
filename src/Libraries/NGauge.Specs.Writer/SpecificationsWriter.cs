@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using NGauge.CodeContracts;
+using NGauge.Specs.Writer.Services;
 
 namespace NGauge.Specs.Writer
 {

@@ -1,8 +1,9 @@
 ﻿using System.CodeDom;
 using System.CodeDom.Compiler;
 using NGauge.CodeContracts;
+using NGauge.Specs.Writer.Factories;
 
-namespace NGauge.Specs.Writer
+namespace NGauge.Specs.Writer.Services
 {
     public sealed class CodeSavingService : ICodeSavingService
     {

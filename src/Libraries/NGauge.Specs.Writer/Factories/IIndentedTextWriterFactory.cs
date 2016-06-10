@@ -1,6 +1,6 @@
 using System.CodeDom.Compiler;
 
-namespace NGauge.Specs.Writer
+namespace NGauge.Specs.Writer.Factories
 {
     public interface IIndentedTextWriterFactory
     {

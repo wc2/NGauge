@@ -1,7 +1,7 @@
 ﻿using NGauge.CodeContracts;
 using SystemWrapper.IO;
 
-namespace NGauge.Specs.Writer
+namespace NGauge.Specs.Writer.Services
 {
     public sealed class FolderServices : IFolderDeletionService, IFolderCreationService
     {

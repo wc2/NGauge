@@ -1,4 +1,4 @@
-namespace NGauge.Specs.Writer
+namespace NGauge.Specs.Writer.Providers
 {
     public interface IGeneratedCodeNamespaceProvider
     {
