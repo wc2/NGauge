@@ -1,32 +1,32 @@
 ﻿using NGauge.CodeContracts;
-using SystemWrapper.IO;
+using SystemInterface.IO;
 
 namespace NGauge.Specs.Writer.Services
 {
     internal sealed class FolderServices : IFolderDeletionService, IFolderCreationService
     {
-        private readonly IDirectoryWrap _directoryWrap;
+        private readonly IDirectory _directory;
 
-        public FolderServices(IDirectoryWrap directoryWrap)
+        public FolderServices(IDirectory directory)
         {
-            Contract.RequiresNotNull(directoryWrap, nameof(directoryWrap));
+            Contract.RequiresNotNull(directory, nameof(directory));
 
-            _directoryWrap = directoryWrap;
+            _directory = directory;
         }
 
         void IFolderDeletionService.Delete(string path)
         {
-            if (_directoryWrap.Exists(path))
+            if (_directory.Exists(path))
             {
-                _directoryWrap.Delete(path, recursive: true);
+                _directory.Delete(path, recursive: true);
             }
         }
 
         void IFolderCreationService.EnsureExists(string path)
         {
-            if (!_directoryWrap.Exists(path))
+            if (!_directory.Exists(path))
             {
-                _directoryWrap.CreateDirectory(path);
+                _directory.CreateDirectory(path);
             }
         }
     }

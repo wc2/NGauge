@@ -1,28 +1,28 @@
 using NGauge.CodeContracts;
 using NGauge.Specs.Writer.Providers;
-using SystemWrapper.IO;
+using SystemInterface.IO;
 
 namespace NGauge.Specs.Writer.Services
 {
     internal sealed class GeneratedCodeNamingService : IGeneratedCodeNamingService
     {
         private readonly string _namespace;
-        private readonly IPathWrap _pathWrap;
+        private readonly IPath _path;
 
-        public GeneratedCodeNamingService(IGeneratedCodeNamespaceProvider generatedCodeNamespaceProvider, IPathWrap pathWrap)
+        public GeneratedCodeNamingService(IGeneratedCodeNamespaceProvider generatedCodeNamespaceProvider, IPath path)
         {
             Contract.RequiresNotNull(generatedCodeNamespaceProvider, nameof(generatedCodeNamespaceProvider));
-            Contract.RequiresNotNull(pathWrap, nameof(pathWrap));
+            Contract.RequiresNotNull(path, nameof(path));
 
             _namespace = generatedCodeNamespaceProvider.GetNamespace();
-            _pathWrap = pathWrap;
+            _path = path;
         }
 
         string IGeneratedCodeNamingService.GetGeneratedCodePath(string projectPath)
         {
             Contract.RequiresNotNull(projectPath, nameof(projectPath));
 
-            return _pathWrap.Combine(projectPath, _namespace);
+            return _path.Combine(projectPath, _namespace);
         }
     }
 }

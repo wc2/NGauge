@@ -4,6 +4,7 @@ using Microsoft.CSharp;
 using NGauge.Specs.Writer.Factories;
 using NGauge.Specs.Writer.Providers;
 using NGauge.Specs.Writer.Services;
+using SystemInterface.IO;
 using SystemWrapper.IO;
 
 namespace NGauge.Specs.Writer
@@ -26,7 +27,7 @@ namespace NGauge.Specs.Writer
 
             builder
                 .RegisterType<PathWrap>()
-                .As<IPathWrap>();
+                .As<IPath>();
 
             builder
                 .RegisterType<SpecificationCodeGenerator>()
@@ -39,7 +40,7 @@ namespace NGauge.Specs.Writer
 
             builder
                 .RegisterType<DirectoryWrap>()
-                .As<IDirectoryWrap>();
+                .As<IDirectory>();
 
             builder
                 .RegisterType<CodeSavingService>()

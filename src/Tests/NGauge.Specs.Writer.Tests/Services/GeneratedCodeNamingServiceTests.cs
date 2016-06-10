@@ -4,7 +4,7 @@ using NGauge.Specs.Writer.Providers;
 using NGauge.Specs.Writer.Services;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
-using SystemWrapper.IO;
+using SystemInterface.IO;
 using Xunit;
 
 namespace NGauge.Specs.Writer.Tests.Services
@@ -18,14 +18,14 @@ namespace NGauge.Specs.Writer.Tests.Services
                 "generatedCodeNamespaceProvider",
                 () => new GeneratedCodeNamingService(
                     null,
-                    Substitute.For<IPathWrap>()));
+                    Substitute.For<IPath>()));
         }
 
         [Fact]
-        public void ctor_PathWrapRequired()
+        public void ctor_PathRequired()
         {
             Assert.Throws<ArgumentNullException>(
-                "pathWrap",
+                "path",
                 () => new GeneratedCodeNamingService(
                     Substitute.For<IGeneratedCodeNamespaceProvider>(),
                     null));
@@ -53,13 +53,13 @@ namespace NGauge.Specs.Writer.Tests.Services
                 .GetNamespace()
                 .Returns(bridgeNamespace);
 
-            var pathWrap = Substitute.For<IPathWrap>();
-            pathWrap
+            var path = Substitute.For<IPath>();
+            path
                 .Combine(projectPath, bridgeNamespace)
                 .Returns(expectedGeneratedCodeFolder);
             var generatedCodeNamingService = CreateGeneratedCodeNamingService(
                 generatedCodeNamespaceProvider,
-                pathWrap);
+                path);
 
             var actualGeneratedCodeFolder = generatedCodeNamingService.GetGeneratedCodePath(projectPath);
 
@@ -69,11 +69,11 @@ namespace NGauge.Specs.Writer.Tests.Services
         }
 
         private static IGeneratedCodeNamingService CreateGeneratedCodeNamingService(
-            IGeneratedCodeNamespaceProvider generatedCodeNamespaceProvider = null, IPathWrap pathWrap = null)
+            IGeneratedCodeNamespaceProvider generatedCodeNamespaceProvider = null, IPath path = null)
         {
             return new GeneratedCodeNamingService(
                 generatedCodeNamespaceProvider ?? Substitute.For<IGeneratedCodeNamespaceProvider>(),
-                pathWrap                       ?? Substitute.For<IPathWrap>());
+                path                           ?? Substitute.For<IPath>());
         }
     }
 }

@@ -2,7 +2,7 @@
 using NGauge.Specs.Writer.Services;
 using NSubstitute;
 using Ploeh.AutoFixture.Xunit2;
-using SystemWrapper.IO;
+using SystemInterface.IO;
 using Xunit;
 
 namespace NGauge.Specs.Writer.Tests.Services
@@ -10,26 +10,26 @@ namespace NGauge.Specs.Writer.Tests.Services
     public sealed class FolderServicesTests
     {
         [Fact]
-        public void ctor_DirectoryWrapRequired()
+        public void ctor_DirectoryRequired()
         {
             Assert.Throws<ArgumentNullException>(
-                "directoryWrap",
+                "directory",
                 () => new FolderServices(null));
         }
 
         [Theory, AutoData]
         public void Delete_DeletesDirectoryIfPathExists(string path)
         {
-            var directoryWrap = Substitute.For<IDirectoryWrap>();
-            directoryWrap
+            var directory = Substitute.For<IDirectory>();
+            directory
                 .Exists(path)
                 .Returns(true);
 
-            IFolderDeletionService foldersService = new FolderServices(directoryWrap);
+            IFolderDeletionService foldersService = new FolderServices(directory);
 
             foldersService.Delete(path);
 
-            directoryWrap
+            directory
                 .Received()
                 .Delete(path, true);
         }
@@ -37,16 +37,16 @@ namespace NGauge.Specs.Writer.Tests.Services
         [Fact]
         public void Delete_DoesNotDeleteDirectoryIfPathDoesNotExist()
         {
-            var directoryWrap = Substitute.For<IDirectoryWrap>();
-            directoryWrap
+            var directory = Substitute.For<IDirectory>();
+            directory
                 .Exists(Arg.Any<string>())
                 .Returns(false);
 
-            IFolderDeletionService foldersService = new FolderServices(directoryWrap);
+            IFolderDeletionService foldersService = new FolderServices(directory);
 
             foldersService.Delete("some path");
 
-            directoryWrap
+            directory
                 .DidNotReceive()
                 .Delete(Arg.Any<string>(), Arg.Any<bool>());
         }
@@ -54,16 +54,16 @@ namespace NGauge.Specs.Writer.Tests.Services
         [Theory, AutoData]
         public void EnsureExists_CreatesDirectoryIfPathDoesNotExist(string path)
         {
-            var directoryWrap = Substitute.For<IDirectoryWrap>();
-            directoryWrap
+            var directory = Substitute.For<IDirectory>();
+            directory
                 .Exists(path)
                 .Returns(false);
 
-            IFolderCreationService foldersService = new FolderServices(directoryWrap);
+            IFolderCreationService foldersService = new FolderServices(directory);
 
             foldersService.EnsureExists(path);
 
-            directoryWrap
+            directory
                 .Received()
                 .CreateDirectory(path);
         }
@@ -71,16 +71,16 @@ namespace NGauge.Specs.Writer.Tests.Services
         [Fact]
         public void EnsureExists_DoesNotCreateDirectoryIfPathExists()
         {
-            var directoryWrap = Substitute.For<IDirectoryWrap>();
-            directoryWrap
+            var directory = Substitute.For<IDirectory>();
+            directory
                 .Exists(Arg.Any<string>())
                 .Returns(true);
 
-            IFolderCreationService foldersService = new FolderServices(directoryWrap);
+            IFolderCreationService foldersService = new FolderServices(directory);
 
             foldersService.EnsureExists("some path");
 
-            directoryWrap
+            directory
                 .DidNotReceive()
                 .CreateDirectory(Arg.Any<string>());
         }
