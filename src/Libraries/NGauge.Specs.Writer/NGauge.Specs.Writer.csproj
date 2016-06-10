@@ -48,7 +48,7 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="CodeSavingService.cs" />
-    <Compile Include="FolderDeletionService.cs" />
+    <Compile Include="FolderServices.cs" />
     <Compile Include="GeneratedCodeNamespaceProvider.cs" />
     <Compile Include="GeneratedCodeNamingService.cs" />
     <Compile Include="IFolderCreationService.cs" />

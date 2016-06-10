@@ -3,11 +3,11 @@ using SystemWrapper.IO;
 
 namespace NGauge.Specs.Writer
 {
-    public sealed class FolderDeletionService : IFolderDeletionService
+    public sealed class FolderServices : IFolderDeletionService, IFolderCreationService
     {
         private readonly IDirectoryWrap _directoryWrap;
 
-        public FolderDeletionService(IDirectoryWrap directoryWrap)
+        public FolderServices(IDirectoryWrap directoryWrap)
         {
             Contract.RequiresNotNull(directoryWrap, nameof(directoryWrap));
 
@@ -19,6 +19,14 @@ namespace NGauge.Specs.Writer
             if (_directoryWrap.Exists(path))
             {
                 _directoryWrap.Delete(path, recursive: true);
+            }
+        }
+
+        void IFolderCreationService.EnsureExists(string path)
+        {
+            if (!_directoryWrap.Exists(path))
+            {
+                _directoryWrap.CreateDirectory(path);
             }
         }
     }

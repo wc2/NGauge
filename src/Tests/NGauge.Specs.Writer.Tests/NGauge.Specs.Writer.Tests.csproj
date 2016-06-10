@@ -92,7 +92,7 @@
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
     <Compile Include="CodeSavingServiceTests.cs" />
-    <Compile Include="FolderDeletionServiceTests.cs" />
+    <Compile Include="FolderServicesTests.cs" />
     <Compile Include="GeneratedCodeNamespaceProviderTests.cs" />
     <Compile Include="GeneratedCodeNamingServiceTests.cs" />
     <Compile Include="Helpers\NSubstituteHelper.cs" />

@@ -60,7 +60,7 @@ namespace NGauge
             return new SpecificationsWriter(
                 null,
                 null,
-                new FolderDeletionService(
+                new FolderServices(
                     new DirectoryWrap()), 
                 null);
         }
