@@ -30,5 +30,6 @@ Once you've pushed a feature branch to your forked repo, you're ready to open a 
 
 ## Before Committing or Submitting a Pull Request
 
+1. Ensure you have added tests for all new code
 1. Ensure all tests are green
 1. Ensure the Visual Studio plug in runs without issue in Visual Studio (Experimental instance)
