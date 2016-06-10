@@ -47,17 +47,17 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
-    <Compile Include="CodeSavingService.cs" />
-    <Compile Include="FolderServices.cs" />
-    <Compile Include="GeneratedCodeNamespaceProvider.cs" />
-    <Compile Include="GeneratedCodeNamingService.cs" />
-    <Compile Include="IFolderCreationService.cs" />
-    <Compile Include="IGeneratedCodeNamespaceProvider.cs" />
-    <Compile Include="ICodeSavingService.cs" />
-    <Compile Include="IFolderDeletionService.cs" />
-    <Compile Include="IGeneratedCodeNamingService.cs" />
+    <Compile Include="Services\CodeSavingService.cs" />
+    <Compile Include="Services\FolderServices.cs" />
+    <Compile Include="Providers\GeneratedCodeNamespaceProvider.cs" />
+    <Compile Include="Services\GeneratedCodeNamingService.cs" />
+    <Compile Include="Services\IFolderCreationService.cs" />
+    <Compile Include="Providers\IGeneratedCodeNamespaceProvider.cs" />
+    <Compile Include="Services\ICodeSavingService.cs" />
+    <Compile Include="Services\IFolderDeletionService.cs" />
+    <Compile Include="Services\IGeneratedCodeNamingService.cs" />
     <Compile Include="IGetInvariantTestAttributor.cs" />
-    <Compile Include="IIndentedTextWriterFactory.cs" />
+    <Compile Include="Factories\IIndentedTextWriterFactory.cs" />
     <Compile Include="ISpecificationCodeGenerator.cs" />
     <Compile Include="ISpecificationsWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
