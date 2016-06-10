@@ -63,13 +63,16 @@ namespace NGauge
             documentEvents.DocumentSaved += RebuildGaugeBridgeToNCrunchIfEditedDocumentIsGaugeDocument;
         }
 
-        private async void RebuildGaugeBridgeToNCrunchIfEditedDocumentIsGaugeDocument(Document document)
+        private void RebuildGaugeBridgeToNCrunchIfEditedDocumentIsGaugeDocument(Document document)
         {
             if (document.IsGaugeDocument())
             {
-                var generatedFile = await _generator.CreateOrUpdateAsync(document.GetProjectPath());
+                _generator
+                    .CreateOrUpdateAsync(document.GetProjectPath())
+                    .ContinueWith(
+                        createOrUpdate =>
+                            document.ProjectItem.ContainingProject.EnsureFileIsReferenced(createOrUpdate.Result));
 
-                document.ProjectItem.ContainingProject.EnsureFileIsReferenced(generatedFile);
             }
         }
     }
