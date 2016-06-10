@@ -50,7 +50,7 @@ namespace NGauge.Specs.Writer.Tests.Services
         {
             var generatedCodeNamespaceProvider = Substitute.For<IGeneratedCodeNamespaceProvider>();
             generatedCodeNamespaceProvider
-                .GetNamespace()
+                .GetRootNamespace()
                 .Returns(bridgeNamespace);
 
             var path = Substitute.For<IPath>();

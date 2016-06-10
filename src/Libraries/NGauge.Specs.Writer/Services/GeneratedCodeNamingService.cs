@@ -14,7 +14,7 @@ namespace NGauge.Specs.Writer.Services
             Contract.RequiresNotNull(generatedCodeNamespaceProvider, nameof(generatedCodeNamespaceProvider));
             Contract.RequiresNotNull(path, nameof(path));
 
-            _namespace = generatedCodeNamespaceProvider.GetNamespace();
+            _namespace = generatedCodeNamespaceProvider.GetRootNamespace();
             _path = path;
         }
 
