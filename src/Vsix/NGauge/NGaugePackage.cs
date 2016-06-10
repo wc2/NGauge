@@ -1,16 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using NGauge.Bridge;
-using NGauge.Core;
 using NGauge.Extensions;
-using NGauge.Specs.Reader;
-using NGauge.Specs.Reader.Factories;
-using NGauge.Specs.Writer;
-using SystemWrapper.IO;
 
 namespace NGauge
 {
@@ -39,30 +35,8 @@ namespace NGauge
 
         private void InitialiseBridgingComponents()
         {
-            _generator = new Generator(
-                CreateSpecificationsReader(),
-                CreateSpecificationsWriter());
-        }
-
-        private static ISpecificationsReader CreateSpecificationsReader()
-        {
-            return new SpecificationsReader(
-                new GaugeSpecificationsService(123),
-                new SpecificationFactory(
-                    new ScenarioFactory(
-                        new StepFactory(
-                            new StepTextParameterExtractor(),
-                            new ParameterFactory()))));
-        }
-
-        private static ISpecificationsWriter CreateSpecificationsWriter()
-        {
-            return new SpecificationsWriter(
-                null,
-                null,
-                new FolderServices(
-                    new DirectoryWrap()), 
-                null);
+            // Switching this out for Autofac construction... New is glue!
+            throw new NotImplementedException();
         }
 
         private void MonitorGaugeDocuments()
