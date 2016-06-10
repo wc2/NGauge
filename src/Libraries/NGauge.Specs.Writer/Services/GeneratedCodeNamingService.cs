@@ -4,7 +4,7 @@ using SystemWrapper.IO;
 
 namespace NGauge.Specs.Writer.Services
 {
-    public sealed class GeneratedCodeNamingService : IGeneratedCodeNamingService
+    internal sealed class GeneratedCodeNamingService : IGeneratedCodeNamingService
     {
         private readonly string _namespace;
         private readonly IPathWrap _pathWrap;

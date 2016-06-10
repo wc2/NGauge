@@ -3,7 +3,7 @@ using SystemWrapper.IO;
 
 namespace NGauge.Specs.Writer.Services
 {
-    public sealed class FolderServices : IFolderDeletionService, IFolderCreationService
+    internal sealed class FolderServices : IFolderDeletionService, IFolderCreationService
     {
         private readonly IDirectoryWrap _directoryWrap;
 

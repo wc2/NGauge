@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
 
 [assembly: AssemblyTitle("NGauge.Specs.Writer.xUnit")]
 [assembly: AssemblyDescription("")]
@@ -7,3 +8,4 @@ using System.Resources;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
+[assembly: InternalsVisibleTo("NGauge.Specs.Writer.xUnit.Tests")]

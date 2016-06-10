@@ -5,7 +5,7 @@ using NGauge.Specs.Writer.Factories;
 
 namespace NGauge.Specs.Writer.Services
 {
-    public sealed class CodeSavingService : ICodeSavingService
+    internal sealed class CodeSavingService : ICodeSavingService
     {
         private readonly IFolderCreationService _folderCreationService;
         private readonly IIndentedTextWriterFactory _indentedTextWriterFactory;

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using Autofac;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using NGauge.Bridge;
 using NGauge.Extensions;
+using NGauge.Specs.Reader;
+using NGauge.Specs.Writer;
+using NGauge.Specs.Writer.xUnit;
 
 namespace NGauge
 {
@@ -35,8 +38,22 @@ namespace NGauge
 
         private void InitialiseBridgingComponents()
         {
-            // Switching this out for Autofac construction... New is glue!
-            throw new NotImplementedException();
+            var container = GetDependencyResolutionContainer();
+            using (var scope = container.BeginLifetimeScope())
+            {
+                _generator = scope.Resolve<Generator>();
+            }
+        }
+
+        private static IContainer GetDependencyResolutionContainer()
+        {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterModule<ReaderModule>();
+            builder.RegisterModule<WriterModule>();
+            builder.RegisterModule<xUnitModule>();
+
+            return builder.Build();
         }
 
         private void MonitorGaugeDocuments()

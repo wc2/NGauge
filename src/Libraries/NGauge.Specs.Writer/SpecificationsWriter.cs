@@ -6,7 +6,7 @@ using NGauge.Specs.Writer.Services;
 
 namespace NGauge.Specs.Writer
 {
-    public sealed class SpecificationsWriter : ISpecificationsWriter
+    internal sealed class SpecificationsWriter : ISpecificationsWriter
     {
         private readonly IGeneratedCodeNamingService _generatedCodeNamingService;
         private readonly ISpecificationCodeGenerator _specificationCodeGenerator;

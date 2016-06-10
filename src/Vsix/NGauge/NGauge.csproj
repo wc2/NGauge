@@ -74,6 +74,10 @@
     <Content Include="Resources\NGaugePackage.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
@@ -198,6 +202,10 @@
     <ProjectReference Include="..\..\Libraries\NGauge.Specs.Reader\NGauge.Specs.Reader.csproj">
       <Project>{AD701195-32D4-4BE4-B2F5-4830ECCDAA7A}</Project>
       <Name>NGauge.Specs.Reader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\NGauge.Specs.Writer.xUnit\NGauge.Specs.Writer.xUnit.csproj">
+      <Project>{0E9E0A0E-45B2-4BE2-95B3-B83EE1BF9472}</Project>
+      <Name>NGauge.Specs.Writer.xUnit</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\NGauge.Specs.Writer\NGauge.Specs.Writer.csproj">
       <Project>{99DEACFE-286C-4482-97F4-4B64518E4562}</Project>

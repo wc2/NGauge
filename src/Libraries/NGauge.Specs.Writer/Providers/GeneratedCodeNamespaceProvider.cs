@@ -1,6 +1,6 @@
 namespace NGauge.Specs.Writer.Providers
 {
-    public sealed class GeneratedCodeNamespaceProvider : IGeneratedCodeNamespaceProvider
+    internal sealed class GeneratedCodeNamespaceProvider : IGeneratedCodeNamespaceProvider
     {
         internal const string Namespace = "NGauge";
 
