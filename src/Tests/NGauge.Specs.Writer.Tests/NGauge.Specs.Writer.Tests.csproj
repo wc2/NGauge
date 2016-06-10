@@ -97,6 +97,7 @@
     <Compile Include="..\..\Common\CommonAssembly.cs">
       <Link>Properties\CommonAssembly.cs</Link>
     </Compile>
+    <Compile Include="Factories\IndentedTextWriterFactoryTests.cs" />
     <Compile Include="Services\CodeSavingServiceTests.cs" />
     <Compile Include="Services\FolderServicesTests.cs" />
     <Compile Include="Providers\GeneratedCodeNamespaceProviderTests.cs" />
@@ -119,9 +120,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Factories\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

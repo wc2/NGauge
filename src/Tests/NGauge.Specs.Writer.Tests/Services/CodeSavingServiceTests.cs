@@ -13,23 +13,11 @@ namespace NGauge.Specs.Writer.Tests.Services
     public sealed class CodeSavingServiceTests
     {
         [Fact]
-        public void ctor_FolderCreationServiceRequired()
-        {
-            Assert.Throws<ArgumentNullException>(
-                "folderCreationService",
-                () => new CodeSavingService(
-                    null,
-                    Substitute.For<IIndentedTextWriterFactory>(),
-                    Substitute.For<CodeDomProvider>()));
-        }
-
-        [Fact]
         public void ctor_IndentedTextWriterFactoryRequired()
         {
             Assert.Throws<ArgumentNullException>(
                 "indentedTextWriterFactory",
                 () => new CodeSavingService(
-                    Substitute.For<IFolderCreationService>(),
                     null,
                     Substitute.For<CodeDomProvider>()));
         }
@@ -40,13 +28,12 @@ namespace NGauge.Specs.Writer.Tests.Services
             Assert.Throws<ArgumentNullException>(
                 "codeDomProvider",
                 () => new CodeSavingService(
-                    Substitute.For<IFolderCreationService>(),
                     Substitute.For<IIndentedTextWriterFactory>(),
                     null));
         }
 
         [Fact]
-        public void Save_CodeCompileUnitRequired()
+        public void Save_GeneratedCodeRequired()
         {
             var codeSavingService = CreateCodeSavingService();
 
@@ -72,17 +59,39 @@ namespace NGauge.Specs.Writer.Tests.Services
                     path));
         }
 
-        [Theory, AutoData]
-        public void Save_EnsuresPathExists(string path)
+        [Fact]
+        public void Save_GeneratedCodeMustHaveAtLeastOneNamespace()
         {
-            var folderCreationService = Substitute.For<IFolderCreationService>();
-            var codeSavingService = CreateCodeSavingService(folderCreationService);
+            var codeSavingService = CreateCodeSavingService();
 
-            codeSavingService.Save(Substitute.For<CodeCompileUnit>(), path);
+            Assert.Throws<ArgumentException>(
+                "generatedCode",
+                () => codeSavingService.Save(new CodeCompileUnit(), "some path"));
+        }
 
-            folderCreationService
-                .Received()
-                .EnsureExists(path);
+        [Fact]
+        public void Save_GeneratedCodeFirstNamespaceMustHaveAtLeastOneType()
+        {
+            var codeSavingService = CreateCodeSavingService();
+            var generatedCode = new CodeCompileUnit();
+            generatedCode.Namespaces.Add(new CodeNamespace());
+
+            Assert.Throws<ArgumentException>(
+                "generatedCode",
+                () => codeSavingService.Save(generatedCode, "some path"));
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(" ")]
+        [InlineData(null)]
+        public void Save_GeneratedCodeFirstNamespaceFirstTypeMustHaveName(string name)
+        {
+            var codeSavingService = CreateCodeSavingService();
+
+            Assert.Throws<ArgumentException>(
+                "generatedCode",
+                () => codeSavingService.Save(GetMockGeneratedCode(name), "some path"));
         }
 
         [Theory, AutoData]
@@ -91,11 +100,25 @@ namespace NGauge.Specs.Writer.Tests.Services
             var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
             var codeSavingService = CreateCodeSavingService(indentedTextWriterFactory: indentedTextWriterFactory);
 
-            codeSavingService.Save(Substitute.For<CodeCompileUnit>(), path);
+            codeSavingService.Save(GetMockGeneratedCode("some name"), path);
 
             indentedTextWriterFactory
                 .Received()
-                .Create(path);
+                .Create(path, Arg.Any<string>());
+        }
+
+        [Theory, AutoData]
+        public void Save_CreatesIndentedTextWriterWithExpectedFileName(string expectedName)
+        {
+            var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
+            var codeSavingService = CreateCodeSavingService(indentedTextWriterFactory: indentedTextWriterFactory);
+            var generatedCode = GetMockGeneratedCode(expectedName);
+
+            codeSavingService.Save(generatedCode, "some path");
+
+            indentedTextWriterFactory
+                .Received()
+                .Create(Arg.Any<string>(), expectedName);
         }
 
         [Fact]
@@ -105,31 +128,42 @@ namespace NGauge.Specs.Writer.Tests.Services
             var indentedTextWriter = new IndentedTextWriter(Substitute.For<TextWriter>());
             var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
             indentedTextWriterFactory
-                .Create(path)
+                .Create(path, Arg.Any<string>())
                 .Returns(indentedTextWriter);
             var codeDomProvider = Substitute.For<CodeDomProvider>();
             var codeSavingService = CreateCodeSavingService(
                 indentedTextWriterFactory: indentedTextWriterFactory,
                 codeDomProvider: codeDomProvider);
-            var codeCompileUnit = Substitute.For<CodeCompileUnit>();
+            var generatedCode = GetMockGeneratedCode("some name");
 
-            codeSavingService.Save(codeCompileUnit, path);
+            codeSavingService.Save(generatedCode, path);
 
             codeDomProvider
                 .Received()
                 .GenerateCodeFromCompileUnit(
-                    codeCompileUnit,
+                    generatedCode,
                     indentedTextWriter,
                     Arg.Any<CodeGeneratorOptions>());
         }
 
-        private static ICodeSavingService CreateCodeSavingService(IFolderCreationService folderCreationService = null,
+        private static ICodeSavingService CreateCodeSavingService(
             IIndentedTextWriterFactory indentedTextWriterFactory = null, CodeDomProvider codeDomProvider = null)
         {
             return new CodeSavingService(
-                folderCreationService     ?? Substitute.For<IFolderCreationService>(),
                 indentedTextWriterFactory ?? Substitute.For<IIndentedTextWriterFactory>(),
                 codeDomProvider           ?? Substitute.For<CodeDomProvider>());
+        }
+
+        private static CodeCompileUnit GetMockGeneratedCode(string expectedName)
+        {
+            var generatedCode = new CodeCompileUnit();
+            var type = new CodeTypeDeclaration(expectedName);
+            var ns = new CodeNamespace();
+
+            ns.Types.Add(type);
+            generatedCode.Namespaces.Add(ns);
+
+            return generatedCode;
         }
     }
 }
