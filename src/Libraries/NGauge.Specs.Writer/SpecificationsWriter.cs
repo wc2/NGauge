@@ -36,12 +36,12 @@ namespace NGauge.Specs.Writer
 
             _folderDeletionService.Delete(generatedCodePath);
 
-            var generationTasks = specifications
+            var specificationWritingTasks = specifications
                 .AsParallel()
                 .Select(_specificationCodeGenerator.GenerateCode)
-                .Select(generatedCode => _codeSavingService.SaveAsync(generatedCode, generatedCodePath));
+                .Select(generatedCode => Task.Run(() => _codeSavingService.Save(generatedCode, generatedCodePath)));
 
-            await Task.WhenAll(generationTasks);
+            await Task.WhenAll(specificationWritingTasks);
 
             return generatedCodePath;
         }
