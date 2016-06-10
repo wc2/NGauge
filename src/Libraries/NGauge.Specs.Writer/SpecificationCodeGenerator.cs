@@ -1,4 +1,5 @@
 using System.CodeDom;
+using NGauge.CodeContracts;
 
 namespace NGauge.Specs.Writer
 {
@@ -6,6 +7,8 @@ namespace NGauge.Specs.Writer
     {
         CodeCompileUnit ISpecificationCodeGenerator.GenerateCode(ISpecification specification)
         {
+            Contract.RequiresNotNull(specification, nameof(specification));
+
             throw new System.NotImplementedException();
         }
     }
