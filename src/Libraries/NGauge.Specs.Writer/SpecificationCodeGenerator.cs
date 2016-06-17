@@ -58,7 +58,7 @@ namespace NGauge.Specs.Writer
                 throw new ArgumentException("Specification must have a name.", nameof(specification));
             }
 
-            var testClass = new CodeTypeDeclaration(specification.Name) {IsClass = true};
+            var testClass = new CodeTypeDeclaration(GetClassName(specification.Name)) {IsClass = true};
             var testMethods = specification
                 .Scenarios
                 .Select(CreateTestMethod)
@@ -67,6 +67,11 @@ namespace NGauge.Specs.Writer
             testClass.Members.AddRange(testMethods);
 
             return testClass;
+        }
+
+        private static string GetClassName(string name)
+        {
+            return name.Replace(" ", "_") + "_" + Guid.NewGuid().ToString().Replace("-", "");
         }
 
         private CodeTypeMember CreateTestMethod(IScenario scenario)
