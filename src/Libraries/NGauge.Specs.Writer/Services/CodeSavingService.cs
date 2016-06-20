@@ -34,12 +34,14 @@ namespace NGauge.Specs.Writer.Services
                     generatedCode,
                     indentedTextWriter,
                     new CodeGeneratorOptions());
+                indentedTextWriter.Flush();
             }
         }
 
         private static string GetFileName(CodeCompileUnit generatedCode)
         {
-            return GetNameOfFirstTypeInFirstNamespace(generatedCode) + "_" + Guid.NewGuid().ToString().Replace("-", "") + CSharpFileNameExtension;
+            return GetNameOfFirstTypeInFirstNamespace(generatedCode) + "_" + Guid.NewGuid().ToString().Replace("-", "") +
+                   CSharpFileNameExtension;
         }
 
         private static string GetNameOfFirstTypeInFirstNamespace(CodeCompileUnit generatedCode)
