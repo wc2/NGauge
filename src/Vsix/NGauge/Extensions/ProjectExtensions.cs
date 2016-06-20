@@ -14,6 +14,16 @@ namespace NGauge.Extensions
             project.Save();
         }
 
+        internal static void EnsureRunnerIsReferenced(this Project project)
+        {
+            
+        }
+
+        internal static void EnsureXUnitIsReferenced(this Project project)
+        {
+            
+        }
+
         private static void RemoveDirectory(this Project project, string folderName)
         {
             var existingItemsInFolder = project.ProjectItems

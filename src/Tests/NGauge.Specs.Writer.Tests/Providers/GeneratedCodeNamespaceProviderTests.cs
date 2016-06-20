@@ -14,13 +14,13 @@ namespace NGauge.Specs.Writer.Tests.Providers
             provider
                 .GetRootNamespace()
                 .Should()
-                .Be(GeneratedCodeNamespaceProvider.Namespace);
+                .Be("NGaugeBridge");
         }
 
         [Fact]
         public void GetNamespace_ReturnsExpectedValue()
         {
-            const string expectedNamespace = "NGauge.Specs.Writer.Tests." + GeneratedCodeNamespaceProvider.Namespace;
+            const string expectedNamespace = "NGauge.Specs.Writer.Tests.NGaugeBridge";
             IGeneratedCodeNamespaceProvider provider = new GeneratedCodeNamespaceProvider();
 
             provider
