@@ -7,18 +7,16 @@ namespace NGauge.Specs.Reader
 {
     public sealed class GaugeSpecificationsService : IGaugeSpecificationsService
     {
-        private readonly int _apiPort;
+        private readonly GaugeApiConnection _connection;
 
-        public GaugeSpecificationsService(int apiPort)
+        public GaugeSpecificationsService(GaugeApiConnection connection)
         {
-            _apiPort = apiPort;
+            _connection = connection;
         }
 
         IEnumerable<ProtoSpec> IGaugeSpecificationsService.GetSpecs()
         {
-            var gaugeApiConnection = new GaugeApiConnection(new TcpClientWrapper(_apiPort));
-
-            return GetSpecsFromGauge(gaugeApiConnection);
+            return GetSpecsFromGauge(_connection);
         }
 
         private static IEnumerable<ProtoSpec> GetSpecsFromGauge(GaugeApiConnection apiConnection)

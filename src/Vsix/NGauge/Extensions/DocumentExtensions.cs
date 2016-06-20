@@ -15,11 +15,15 @@ namespace NGauge.Extensions
 
         internal static string GetProjectPath(this Document document)
         {
-            return Path.GetFullPath(
+            return Path.GetDirectoryName(
                 document
-                    .ProjectItem
-                    .ContainingProject
+                    .GetProject()
                     .FullName);
+        }
+
+        internal static Project GetProject(this Document document)
+        {
+            return document.ProjectItem.ContainingProject;
         }
 
         private static bool IsGaugeDocument(this string path)

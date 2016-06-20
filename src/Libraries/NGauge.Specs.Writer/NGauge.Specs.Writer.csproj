@@ -85,6 +85,10 @@
       <Project>{62a19060-3c3d-498a-8566-2d1047d33601}</Project>
       <Name>NGauge.CodeContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NGauge.Runner\NGauge.Runner.csproj">
+      <Project>{48a3ff36-660a-4ba9-9786-04cc3bac3533}</Project>
+      <Name>NGauge.Runner</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NGauge.Specs\NGauge.Specs.csproj">
       <Project>{a8a83209-de6f-4ca1-87a3-9b8da11305ab}</Project>
       <Name>NGauge.Specs</Name>

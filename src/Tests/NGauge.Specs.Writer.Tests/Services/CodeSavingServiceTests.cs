@@ -118,7 +118,7 @@ namespace NGauge.Specs.Writer.Tests.Services
 
             indentedTextWriterFactory
                 .Received()
-                .Create(Arg.Any<string>(), expectedName);
+                .Create(Arg.Any<string>(), Arg.Is<string>(name => name.StartsWith(expectedName) && name.EndsWith(".cs")));
         }
 
         [Fact]

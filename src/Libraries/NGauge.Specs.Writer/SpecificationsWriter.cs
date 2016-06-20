@@ -39,10 +39,14 @@ namespace NGauge.Specs.Writer
 
             var specificationWritingTasks = specifications
                 .AsParallel()
-                .Select(_specificationCodeGenerator.GenerateCode)
-                .Select(generatedCode => Task.Run(() => _codeSavingService.Save(generatedCode, generatedCodePath)));
+                .Select(specification => Task.Run(() => _specificationCodeGenerator.GenerateCode(specification)));
 
             await Task.WhenAll(specificationWritingTasks);
+
+            foreach (var generatedCode in specificationWritingTasks.Select(task => task.Result))
+            {
+                _codeSavingService.Save(generatedCode, generatedCodePath);
+            }
 
             return generatedCodePath;
         }

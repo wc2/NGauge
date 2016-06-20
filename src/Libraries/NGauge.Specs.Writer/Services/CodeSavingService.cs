@@ -9,6 +9,7 @@ namespace NGauge.Specs.Writer.Services
 {
     internal sealed class CodeSavingService : ICodeSavingService
     {
+        private const string CSharpFileNameExtension = ".cs";
         private readonly IIndentedTextWriterFactory _indentedTextWriterFactory;
         private readonly CodeDomProvider _codeDomProvider;
 
@@ -26,7 +27,7 @@ namespace NGauge.Specs.Writer.Services
             Contract.RequiresNotNull(generatedCode, nameof(generatedCode));
             Contract.RequiresNotNull(path, nameof(path));
 
-            var name = GetNameOfFirstTypeInFirstNamespace(generatedCode);
+            var name = GetFileName(generatedCode);
             using (var indentedTextWriter = _indentedTextWriterFactory.Create(path, name))
             {
                 _codeDomProvider.GenerateCodeFromCompileUnit(
@@ -34,6 +35,11 @@ namespace NGauge.Specs.Writer.Services
                     indentedTextWriter,
                     new CodeGeneratorOptions());
             }
+        }
+
+        private static string GetFileName(CodeCompileUnit generatedCode)
+        {
+            return GetNameOfFirstTypeInFirstNamespace(generatedCode) + "_" + Guid.NewGuid().ToString().Replace("-", "") + CSharpFileNameExtension;
         }
 
         private static string GetNameOfFirstTypeInFirstNamespace(CodeCompileUnit generatedCode)
