@@ -12,6 +12,15 @@ namespace NGauge.Specs.Writer.Tests
 {
     public sealed class SpecificationCodeGeneratorTests
     {
+        public static readonly object[] CodeSafeNameTestCases =
+        {
+            new[] {"Somename", "Somename"},
+            new[] {"Some name", "Somename"},
+            new[] {"Some name!", "Somename"},
+            new[] {"Test: Something", "TestSomething"},
+            new[] {"Should [remove] non-word characters", "Shouldremovenonwordcharacters"}
+        };
+
         [Fact]
         public void ctor_GeneratedCodeNamespaceProviderRequired()
         {
@@ -100,13 +109,14 @@ namespace NGauge.Specs.Writer.Tests
                 .Be(true);
         }
 
-        [Theory, AutoData]
-        public void GenerateCode_ClassShouldHaveExpectedName(string expectedName)
+        [Theory]
+        [MemberData(nameof(CodeSafeNameTestCases))]
+        public void GenerateCode_ClassShouldHaveExpectedName(string name, string expectedName)
         {
             var specification = Substitute.For<ISpecification>();
             specification
                 .Name
-                .Returns(expectedName);
+                .Returns(name);
 
             var generator = CreateSpecificationCodeGenerator();
 
@@ -133,16 +143,17 @@ namespace NGauge.Specs.Writer.Tests
                 .Be(sampleSize);
         }
 
-        [Theory, AutoData]
-        public void GenerateCode_EachScenarioMethodShouldHaveSameNameAsScenario(string[] expectedNames)
+        [Theory]
+        [MemberData(nameof(CodeSafeNameTestCases))]
+        public void GenerateCode_EachScenarioMethodShouldHaveSameNameAsScenario(string name, string expectedName)
         {
             var generator = CreateSpecificationCodeGenerator();
             var generatedCode = generator.GenerateCode(
-                GetMockSpecification(scenarios: expectedNames.Select(GetMockScenario)));
+                GetMockSpecification(scenarios: new[] {GetMockScenario(name)}));
 
             GetTestMethods(generatedCode)
                 .Select(method => method.Name)
-                .ShouldBeEquivalentTo(expectedNames);
+                .ShouldBeEquivalentTo(new[] {expectedName});
         }
 
         [Fact]

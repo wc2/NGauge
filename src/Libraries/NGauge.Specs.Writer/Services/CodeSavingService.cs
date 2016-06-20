@@ -39,7 +39,7 @@ namespace NGauge.Specs.Writer.Services
 
         private static string GetFileName(CodeCompileUnit generatedCode)
         {
-            return GetNameOfFirstTypeInFirstNamespace(generatedCode) + CSharpFileNameExtension;
+            return GetNameOfFirstTypeInFirstNamespace(generatedCode) + "_" + Guid.NewGuid().ToString().Replace("-", "") + CSharpFileNameExtension;
         }
 
         private static string GetNameOfFirstTypeInFirstNamespace(CodeCompileUnit generatedCode)

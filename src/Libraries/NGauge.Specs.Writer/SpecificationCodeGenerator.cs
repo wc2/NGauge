@@ -1,6 +1,7 @@
 using System;
 using System.CodeDom;
 using System.Linq;
+using System.Text.RegularExpressions;
 using NGauge.CodeContracts;
 using NGauge.Runner;
 using NGauge.Specs.Writer.Providers;
@@ -9,6 +10,7 @@ namespace NGauge.Specs.Writer
 {
     internal sealed class SpecificationCodeGenerator : ISpecificationCodeGenerator
     {
+        private static readonly Regex InvalidCodeSymbolPattern = new Regex(@"\W");
         private const string RunnerNamespace = "NGauge.Runner";
         private const string RunnerVariableName = "runner";
         private readonly IGeneratedCodeNamespaceProvider _generatedCodeNamespaceProvider;
@@ -58,7 +60,11 @@ namespace NGauge.Specs.Writer
                 throw new ArgumentException("Specification must have a name.", nameof(specification));
             }
 
-            var testClass = new CodeTypeDeclaration(GetClassName(specification.Name)) {IsClass = true};
+            var testClass = new CodeTypeDeclaration(GetCodeSafeName(specification.Name))
+            {
+                IsClass = true,
+                IsPartial = true
+            };
             var testMethods = specification
                 .Scenarios
                 .Select(CreateTestMethod)
@@ -69,15 +75,14 @@ namespace NGauge.Specs.Writer
             return testClass;
         }
 
-        private static string GetClassName(string name)
-        {
-            return name.Replace(" ", "_") + "_" + Guid.NewGuid().ToString().Replace("-", "");
-        }
-
         private CodeTypeMember CreateTestMethod(IScenario scenario)
         {
             var invariantTestAttribute = _getInvariantTestAttributor.GetAttribute();
-            var testMethod = new CodeMemberMethod {Name = scenario.Name};
+            var testMethod = new CodeMemberMethod
+            {
+                Name = GetCodeSafeName(scenario.Name),
+                Attributes = MemberAttributes.Public
+            };
             var runnerDeclaration = new CodeVariableDeclarationStatement(
                 type: typeof(IScenarioRunner),
                 name: RunnerVariableName,
@@ -95,14 +100,18 @@ namespace NGauge.Specs.Writer
             return testMethod;
         }
 
+        private static string GetCodeSafeName(string name)
+        {
+            return InvalidCodeSymbolPattern.Replace(name, "");
+        }
+
         private static CodeMethodInvokeExpression CreateTestStatement(IStep step)
         {
             return new CodeMethodInvokeExpression(
-                new CodeVariableReferenceExpression(RunnerVariableName),
+                new CodeVariableReferenceExpression("runner"),
                 nameof(IScenarioRunner.ExecuteStep),
-                step
-                    .Parameters
-                    ?.Select(CreateParameter)
+                new[] { step.StepText }.Concat(step.Parameters ?? new object[] { })
+                    .Select(CreateParameter)
                     .ToArray());
         }
 
