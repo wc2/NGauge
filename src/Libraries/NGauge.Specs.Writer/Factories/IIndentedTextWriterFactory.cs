@@ -1,9 +1,9 @@
-using System.CodeDom.Compiler;
+using System.IO;
 
 namespace NGauge.Specs.Writer.Factories
 {
     public interface IIndentedTextWriterFactory
     {
-        IndentedTextWriter Create(string path, string name);
+        TextWriter Create(string path, string name);
     }
 }

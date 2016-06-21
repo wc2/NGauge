@@ -77,6 +77,8 @@ namespace NGauge
             var bridge = await generator.CreateOrUpdateAsync(document.GetProjectPath());
 
             project.EnsureFolderIsReferenced(bridge);
+            project.EnsureRunnerIsReferenced();
+            project.EnsureXUnitIsReferenced();
         }
 
         private IGenerator GetGeneratorForProject(Project project)

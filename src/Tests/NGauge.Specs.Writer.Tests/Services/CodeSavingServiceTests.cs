@@ -97,7 +97,7 @@ namespace NGauge.Specs.Writer.Tests.Services
         [Theory, AutoData]
         public void Save_CreatesIndentedTextWriterWithExpectedPath(string path)
         {
-            var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
+            var indentedTextWriterFactory = GetMockIndentedTextWriterFactory();
             var codeSavingService = CreateCodeSavingService(indentedTextWriterFactory: indentedTextWriterFactory);
 
             codeSavingService.Save(GetMockGeneratedCode("some name"), path);
@@ -110,7 +110,7 @@ namespace NGauge.Specs.Writer.Tests.Services
         [Theory, AutoData]
         public void Save_CreatesIndentedTextWriterWithExpectedFileName(string expectedName)
         {
-            var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
+            var indentedTextWriterFactory = GetMockIndentedTextWriterFactory();
             var codeSavingService = CreateCodeSavingService(indentedTextWriterFactory: indentedTextWriterFactory);
             var generatedCode = GetMockGeneratedCode(expectedName);
 
@@ -125,7 +125,7 @@ namespace NGauge.Specs.Writer.Tests.Services
         public void Save_GeneratesCodeFromCompiledUnit()
         {
             const string path = "some path";
-            var indentedTextWriter = new IndentedTextWriter(Substitute.For<TextWriter>());
+            var indentedTextWriter = Substitute.For<TextWriter>();
             var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
             indentedTextWriterFactory
                 .Create(path, Arg.Any<string>())
@@ -146,12 +146,41 @@ namespace NGauge.Specs.Writer.Tests.Services
                     Arg.Any<CodeGeneratorOptions>());
         }
 
+        [Fact]
+        public void Save_FlushesIndentedTextWriter()
+        {
+            var indentedTextWriter = Substitute.For<TextWriter>();
+            var indentedTextWriterFactory = Substitute.For<IIndentedTextWriterFactory>();
+            indentedTextWriterFactory
+                .Create(Arg.Any<string>(), Arg.Any<string>())
+                .Returns(indentedTextWriter);
+
+            var codeSavingService = CreateCodeSavingService(indentedTextWriterFactory: indentedTextWriterFactory);
+
+            codeSavingService.Save(GetMockGeneratedCode("some name"), "some path");
+
+            indentedTextWriter
+                .Received()
+                .Flush();
+        }
+
         private static ICodeSavingService CreateCodeSavingService(
             IIndentedTextWriterFactory indentedTextWriterFactory = null, CodeDomProvider codeDomProvider = null)
         {
             return new CodeSavingService(
-                indentedTextWriterFactory ?? Substitute.For<IIndentedTextWriterFactory>(),
+                indentedTextWriterFactory ?? GetMockIndentedTextWriterFactory(),
                 codeDomProvider           ?? Substitute.For<CodeDomProvider>());
+        }
+
+        private static IIndentedTextWriterFactory GetMockIndentedTextWriterFactory()
+        {
+            var factory = Substitute.For<IIndentedTextWriterFactory>();
+
+            factory
+                .Create(Arg.Any<string>(), Arg.Any<string>())
+                .Returns(Substitute.For<TextWriter>());
+
+            return factory;
         }
 
         private static CodeCompileUnit GetMockGeneratedCode(string expectedName)
