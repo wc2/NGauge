@@ -16,11 +16,6 @@ namespace NGauge.Specs.Reader
 
         IEnumerable<ProtoSpec> IGaugeSpecificationsService.GetSpecs()
         {
-            return GetSpecsFromGauge(_connection);
-        }
-
-        private static IEnumerable<ProtoSpec> GetSpecsFromGauge(GaugeApiConnection apiConnection)
-        {
             var specsRequest = GetAllSpecsRequest.DefaultInstance;
 
             var apiMessage = APIMessage.CreateBuilder()
@@ -29,7 +24,7 @@ namespace NGauge.Specs.Reader
                 .SetAllSpecsRequest(specsRequest)
                 .Build();
 
-            var apiResponse = apiConnection.WriteAndReadApiMessage(apiMessage);
+            var apiResponse = _connection.WriteAndReadApiMessage(apiMessage);
 
             return apiResponse
                 .AllSpecsResponse
